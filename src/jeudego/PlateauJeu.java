@@ -90,7 +90,7 @@ public class PlateauJeu {
     }
 
     /**
-     * Method to determine if the point is empty or not
+     * Method to determine if the point is empty (true) or not (false)
      *
      * @param point
      * @return boolean res
@@ -109,7 +109,11 @@ public class PlateauJeu {
         }
         return res;
     }
-
+/**
+ * Method to determine if there is a suicide (false) or not (true)
+ * @param point
+ * @return 
+ */
     public boolean suicide(Point point) {
         boolean res = false;
         Point A = new Point(point.getx() + 1, point.gety() + 1);
