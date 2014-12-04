@@ -4,6 +4,9 @@
  */
 package jeudego;
 
+import java.util.List;
+import java.util.Scanner;
+
 /**
  *
  * @author cbrandon
@@ -22,6 +25,24 @@ public class Joueur {
     
     public String getCouleur(){
         return couleur;
+    }
+    
+    public Point Jouer(PlateauJeu pl){
+        Point po = new Point(0,0);
+        
+        System.out.println("Veuillez choisir une case du plateau /n x=");
+        
+        Scanner saisie=new Scanner(System.in);
+        po.setx(saisie.nextInt());
+        System.out.println("y=");
+        po.sety(saisie.nextInt());
+        
+        if (pl.suicide(po)){
+            return po;}
+        else{
+            System.out.println("Vous ne pouvez pas poser de pions sur cette case");
+            return Jouer(pl);
+        }
     }
     
 }
