@@ -14,7 +14,7 @@ import java.util.List;
 public class PlateauJeu {
 
     private List<Point> blanc;
-    private List<Point> Noir;
+    private List<Point> noir;
     private int taille = 1;
 
     /**
@@ -24,6 +24,9 @@ public class PlateauJeu {
      */
     public PlateauJeu(int taille) {
         this.taille = taille;
+        this.blanc = new ArrayList<Point>();
+        this.noir=new ArrayList<Point>();
+        taille=9;
     }
 
     /*
@@ -56,16 +59,16 @@ public class PlateauJeu {
      * @return the value of Noir
      */
     public List<Point> getNoir() {
-        return Noir;
+        return noir;
     }
 
     /**
      * Set the value of Noir
      *
-     * @param Noir new value of Noir
+     * @param noir new value of Noir
      */
-    public void setNoir(List<Point> Noir) {
-        this.Noir = Noir;
+    public void setNoir(List<Point> noir) {
+        this.noir = noir;
     }
 
     /**
@@ -84,5 +87,63 @@ public class PlateauJeu {
      */
     public void setBlanc(List<Point> blanc) {
         this.blanc = blanc;
+    }
+
+    /**
+     * Method to determine if the point is empty or not
+     *
+     * @param point
+     * @return boolean res
+     */
+    public boolean pointLibre(Point point) {
+        boolean res = true;
+        for (int i = 0; i < blanc.size(); i++) {
+            if (this.getBlanc().get(i) == point) {
+                res = false;
+            }
+        }
+        for (int i = 0; i < noir.size(); i++) {
+            if (this.getNoir().get(i) == point) {
+                res = false;
+            }
+        }
+        return res;
+    }
+
+    public boolean suicide(Point point) {
+        boolean res = false;
+        Point A = new Point(point.getx() + 1, point.gety() + 1);
+        Point B = new Point(point.getx(), point.gety() + 1);
+        Point C = new Point(point.getx() - 1, point.gety() + 1);
+        Point D = new Point(point.getx() - 1, point.gety());
+        Point E = new Point(point.getx() - 1, point.gety() - 1);
+        Point F = new Point(point.getx(), point.gety() - 1);
+        Point G = new Point(point.getx() + 1, point.gety() - 1);
+        Point H = new Point(point.getx() + 1, point.gety());
+        if (this.pointLibre(A)) {
+            res = true;
+        }
+        if (this.pointLibre(B)) {
+            res = true;
+        }
+        if (this.pointLibre(C)) {
+            res = true;
+        }
+        if (this.pointLibre(D)) {
+            res = true;
+        }
+        if (this.pointLibre(E)) {
+            res = true;
+        }
+        if (this.pointLibre(F)) {
+            res = true;
+        }
+        if (this.pointLibre(G)) {
+            res = true;
+        }
+        if (this.pointLibre(H)) {
+            res = true;
+        }
+        return res;
     }
 }
