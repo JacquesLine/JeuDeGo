@@ -24,6 +24,9 @@ public class PlateauJeu {
      */
     public PlateauJeu(int taille) {
         this.taille = taille;
+        this.blanc = new ArrayList<Point>();
+        this.noir=new ArrayList<Point>();
+        taille=9;
     }
 
     /*
