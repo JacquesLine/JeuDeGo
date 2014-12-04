@@ -5,7 +5,7 @@
 package jeudego;
 
 /**
- *
+ *1
  * @author vvielzeu
  */
 public class JeuDeGo {
