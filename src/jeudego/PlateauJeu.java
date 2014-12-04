@@ -15,7 +15,9 @@ public class PlateauJeu {
 
     private List<Point> blanc;
     private List<Point> noir;
-    private int taille = 1;
+    private int taille;
+    private Joueur joueur1;
+    private Joueur joueur2;
 
     /**
      * Constructeur de base
@@ -25,22 +27,29 @@ public class PlateauJeu {
     public PlateauJeu(int taille) {
         this.taille = taille;
         this.blanc = new ArrayList<Point>();
-        this.noir=new ArrayList<Point>();
-        taille=9;
+        this.noir = new ArrayList<Point>();
+        this.joueur1 = new Joueur("blanc");
+        this.joueur2 = new Joueur("noir");
     }
 
     /*
      * constructeur par defaut
      */
     public PlateauJeu() {
+        this.taille = 9;
+        this.blanc = new ArrayList<Point>();
+        this.noir = new ArrayList<Point>();
+        taille = 9;
+        this.joueur1 = new Joueur("blanc");
+        this.joueur2 = new Joueur("noir");
     }
 
-    /**
-     * Get the value of taille
-     *
-     * @return the value of taille
-     */
-    public int getTaille() {
+/**
+ * Get the value of taille
+ *
+ * @return the value of taille
+ */
+public int getTaille() {
         return taille;
     }
 
@@ -89,6 +98,22 @@ public class PlateauJeu {
         this.blanc = blanc;
     }
 
+    public Joueur getJoueur1() {
+        return joueur1;
+    }
+
+    public void setJoueur1(Joueur joueur1) {
+        this.joueur1 = joueur1;
+    }
+
+    public Joueur getJoueur2() {
+        return joueur2;
+    }
+
+    public void setJoueur2(Joueur joueur2) {
+        this.joueur2 = joueur2;
+    }
+
     /**
      * Method to determine if the point is empty (true) or not (false)
      *
@@ -109,11 +134,13 @@ public class PlateauJeu {
         }
         return res;
     }
-/**
- * Method to determine if there is a suicide (false) or not (true)
- * @param point
- * @return 
- */
+
+    /**
+     * Method to determine if there is a suicide (false) or not (true)
+     *
+     * @param point
+     * @return
+     */
     public boolean suicide(Point point) {
         boolean res = false;
         Point A = new Point(point.getx() + 1, point.gety() + 1);
@@ -150,4 +177,9 @@ public class PlateauJeu {
         }
         return res;
     }
+
+    public void miseAJour(Joueur A) {
+        
+    }
 }
+
