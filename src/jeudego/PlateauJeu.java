@@ -13,28 +13,76 @@ import java.util.List;
  */
 public class PlateauJeu {
 
-    private static int taille;
-    public List<Point> blanc;
-    public List<Point> noir;
-    public List<Point> vide;
+    private List<Point> blanc;
+    private List<Point> Noir;
+    private int taille = 1;
 
     /**
-     * Constructeur de plateau
+     * Constructeur de base
      *
-     * @param l
+     * @param taille
      */
-    public PlateauJeu(int l) {
-        taille = l;
-        blanc = new ArrayList<Point>();
-        noir = new ArrayList<Point>();
-        vide = new ArrayList<Point>();
+    public PlateauJeu(int taille) {
+        this.taille = taille;
     }
-    
+
+    /*
+     * constructeur par defaut
+     */
+    public PlateauJeu() {
+    }
+
     /**
-    * Accesseur
-    * @return 
-    */
+     * Get the value of taille
+     *
+     * @return the value of taille
+     */
     public int getTaille() {
         return taille;
+    }
+
+    /**
+     * Set the value of taille
+     *
+     * @param taille new value of taille
+     */
+    public void setTaille(int taille) {
+        this.taille = taille;
+    }
+
+    /**
+     * Get the value of Noir
+     *
+     * @return the value of Noir
+     */
+    public List<Point> getNoir() {
+        return Noir;
+    }
+
+    /**
+     * Set the value of Noir
+     *
+     * @param Noir new value of Noir
+     */
+    public void setNoir(List<Point> Noir) {
+        this.Noir = Noir;
+    }
+
+    /**
+     * Get the value of blanc
+     *
+     * @return the value of blanc
+     */
+    public List<Point> getBlanc() {
+        return blanc;
+    }
+
+    /**
+     * Set the value of blanc
+     *
+     * @param blanc new value of blanc
+     */
+    public void setBlanc(List<Point> blanc) {
+        this.blanc = blanc;
     }
 }
