@@ -15,6 +15,8 @@ public class PlateauJeu {
 
     private List<Point> blanc;
     private List<Point> noir;
+    private Point tourPrecedent;
+    private boolean captureAuTourPrecedent;
     private int taille;
     private Joueur joueur1;
     private Joueur joueur2;
@@ -28,6 +30,8 @@ public class PlateauJeu {
         this.taille = taille;
         this.blanc = new ArrayList<Point>();
         this.noir = new ArrayList<Point>();
+        this.tourPrecedent = new Point(1,1);
+        this.captureAuTourPrecedent=false;
         this.joueur1 = new Joueur("blanc");
         this.joueur2 = new Joueur("noir");
     }
@@ -36,6 +40,8 @@ public class PlateauJeu {
     	this.taille=plateau.taille;
     	this.blanc=plateau.blanc;
     	this.noir=plateau.noir;
+        this.tourPrecedent = new Point(1,1);
+        this.captureAuTourPrecedent=false;
     	this.joueur1=plateau.joueur1;
     	this.joueur2=this.joueur2;
     	
@@ -107,6 +113,22 @@ public class PlateauJeu {
         this.blanc = blanc;
     }
 
+    public Point getTourPrecedent() {
+        return tourPrecedent;
+    }
+
+    public void setTourPrecedent(Point tourPrecedent) {
+        this.tourPrecedent = tourPrecedent;
+    }
+
+    public boolean isCaptureAuTourPrecedent() {
+        return captureAuTourPrecedent;
+    }
+
+    public void setCaptureAuTourPrecedent(boolean captureAuTourPrecedent) {
+        this.captureAuTourPrecedent = captureAuTourPrecedent;
+    }
+    
     public Joueur getJoueur1() {
         return joueur1;
     }
@@ -209,6 +231,40 @@ public class PlateauJeu {
         } else {
         }
         return res;
+    }
+    
+    /**
+     * Method to determine if an precedent configuration come back
+     *
+     * @param point
+     * @param couleur 
+     * @return
+     */
+    public boolean confPrecedente(Point point, String couleur){
+        boolean voisin = false;
+        if (this.isCaptureAuTourPrecedent()==true){
+            if (this.getTourPrecedent().getx()==point.getx() && (this.getTourPrecedent().gety()-point.gety()==-1 || this.getTourPrecedent().gety()-point.gety()==1)){
+                voisin = true;          
+            } else if (this.getTourPrecedent().gety()==point.gety() && (this.getTourPrecedent().getx()-point.getx()==-1 || this.getTourPrecedent().getx()-point.getx()==1)){
+                voisin = true;
+            }
+        } 
+        if(voisin){
+            Point A = new Point(point.getx() + 1, point.gety() );
+            Point B = new Point(point.getx(), point.gety() + 1);
+            Point C = new Point(point.getx() - 1, point.gety() );
+            Point D = new Point(point.getx(), point.gety() - 1);
+            if (couleur.contains("blanc")){
+                if(this.pointLibreNoir(A) && this.pointLibreNoir(B) && this.pointLibreNoir(C) && this.pointLibreNoir(D)){
+                    return false;
+                }
+            }
+            if (couleur.contains("noir")){
+                if(this.pointLibreBlanc(A) && this.pointLibreBlanc(B) && this.pointLibreBlanc(C) && this.pointLibreBlanc(D)){
+                    return false;
+            }
+        }
+        return true;
     }
     
     public PlateauJeu tourDeJeu(Joueur A){
