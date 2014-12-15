@@ -191,6 +191,10 @@ public class PlateauJeu {
      */
     public boolean suicide(boolean b) {
         boolean res = false;
+<<<<<<< HEAD
+=======
+
+>>>>>>> ec1d1fc3b3ccef6800047353a4cb36228b87d1e2
         return res;
     }
     
@@ -199,7 +203,8 @@ public class PlateauJeu {
      * @param A the player playing.
      * @return
      */
-/*
+    
+    /**
      * Method to determine if an precedent configuration come back
      * voisin is a local boolean which permits to not copy paste some tests
      * the fonction returns true if the ko rule is respected, if the movement is legal
@@ -257,5 +262,10 @@ public class PlateauJeu {
     }
 
     public void miseAJour(Joueur A) {
+        
     }
   }
+<<<<<<< HEAD
+=======
+        
+>>>>>>> ec1d1fc3b3ccef6800047353a4cb36228b87d1e2

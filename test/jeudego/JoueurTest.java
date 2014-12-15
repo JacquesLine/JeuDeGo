@@ -61,6 +61,7 @@ public class JoueurTest {
     public void testJouer() {
         System.out.println("Jouer");
         PlateauJeu pl = new PlateauJeu();
+        PlateauJeu pl2 =new PlateauJeu(pl);
         pl.getNoir().add(new Point(3,3));
         pl.getNoir().add(new Point(2,4));
         pl.getNoir().add(new Point(4,4));
@@ -73,9 +74,8 @@ public class JoueurTest {
         FileInputStream in = null;
         try {in = new FileInputStream(file);}
         catch (IOException e) {e.printStackTrace();}
-        
         System.setIn(in);
-        Point result = instance.Jouer(pl,in);
-        assertEquals(expResult, result);
+        instance.jouer(pl2, in);
+        assertEquals(pl, pl2);
     }
 }
