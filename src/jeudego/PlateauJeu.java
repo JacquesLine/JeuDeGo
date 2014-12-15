@@ -239,7 +239,8 @@ public class PlateauJeu {
         return true;
  }
 
-    public PlateauJeu tourDeJeu(Joueur A){
+    //TODO La fonction tourDeJeu est peine d'erreurs, à faire quand suicide() sera prêt
+    /*public PlateauJeu tourDeJeu(Joueur A){
     	System.out.println("C'est au tour du joueur "+A.getCouleur()+" de jouer");
     	PlateauJeu futur=new PlateauJeu(this);
     	A.jouer(futur);
@@ -249,9 +250,9 @@ public class PlateauJeu {
     	            return this;}
     	      }
     	
-    	
+   	
     }
-
+*/
     public void miseAJour(Joueur A) {
         
     }
