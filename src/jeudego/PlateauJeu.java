@@ -242,13 +242,10 @@ public class PlateauJeu {
                 }
             }
         }
-<<<<<<< HEAD
         return true;
  }
-=======
-        return true;    
-    }
->>>>>>> 4d8119653558a146c081324f9ae3590ea29dc60c
+   
+    
     
 
     public PlateauJeu tourDeJeu(Joueur A){
