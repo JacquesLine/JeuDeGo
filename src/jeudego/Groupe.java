@@ -45,6 +45,14 @@ public class Groupe {
         return S;
     }
     
+    public Groupe fusion(Groupe a, Groupe b){
+    	Groupe c=new Groupe(a.getCouleur());
+    	for (Pion pion:a.getPions()) {c.getPions().add(pion);}
+    	for (Pion pion:b.getPions()) {c.getPions().add(pion);}
+    	return c;
+    	
+    }
+    
     public ArrayList<Point> casesLibres (PlateauJeu pl){
         ArrayList<Point> liste = new ArrayList<Point>();
         liste.add(pions.get(0).casesLibres(pl).get(0));
