@@ -199,8 +199,7 @@ public class PlateauJeu {
      * @param A the player playing.
      * @return
      */
-    
-    /**
+/*
      * Method to determine if an precedent configuration come back
      * voisin is a local boolean which permits to not copy paste some tests
      * the fonction returns true if the ko rule is respected, if the movement is legal
@@ -238,14 +237,8 @@ public class PlateauJeu {
         return true;
  }
    
-    
-    
-
     public PlateauJeu tourDeJeu(Joueur A){
     	System.out.println("C'est au tour du joueur "+A.getCouleur()+" de jouer");
-    	boolean b= true;
-    	if (A.getCouleur().equals("blanc")){b=true;}
-    	else{b=false;}
     	PlateauJeu futur=new PlateauJeu(this);
     	A.jouer(futur,System.in);
     	if (futur.suicide()) {return futur;}
@@ -258,7 +251,7 @@ public class PlateauJeu {
     }
 
     public void miseAJour(Joueur A) {
-        
     }
   }
-
+        return true;    
+    }

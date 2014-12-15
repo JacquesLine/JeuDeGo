@@ -13,25 +13,17 @@ import java.util.ArrayList;
 public class Point {
     private int x;
     private int y;
-    private String couleur;
     
-    public Point(int x,int y, String couleur){
-        this.x=x;
-        this.y=y;
-        this.couleur=couleur;
-    }
     
     public Point(int x,int y){
         this.x=x;
         this.y=y;
-        this.couleur=null;
         
     }
     
     public Point (Point p){
         this.x=p.x;
         this.y=p.y;
-        this.couleur=p.couleur;
     }
     
     public int getx(){
@@ -54,12 +46,7 @@ public class Point {
         this.x=x;
         this.y=y;
     }
-    public String getCouleur (){
-        return this.couleur;
-    }
-public void setCouleur (String color){
-    this.couleur = color;
-}
+
     @Override
     public String toString(){
         return "Je suis un point en ["+x+","+y+"].";
