@@ -190,7 +190,12 @@ public class PlateauJeu {
      * @return
      */
     public boolean suicide(boolean b) {
+<<<<<<< HEAD
         boolean res = false;
+=======
+        boolean res = false;
+
+>>>>>>> 1053d668c1611724864083ec83ba846b6d97ef6f
         return res;
     }
     
@@ -237,11 +242,9 @@ public class PlateauJeu {
         }
         return true;
  }
-   
-    
-    
 
-    public PlateauJeu tourDeJeu(Joueur A){
+    //TODO La fonction tourDeJeu est peine d'erreurs, à faire quand suicide() sera prêt
+    /*public PlateauJeu tourDeJeu(Joueur A){
     	System.out.println("C'est au tour du joueur "+A.getCouleur()+" de jouer");
     	boolean b= true;
     	if (A.getCouleur().equals("blanc")){b=true;}
@@ -254,11 +257,14 @@ public class PlateauJeu {
     	            return this;}
     	      }
     	
-    	
+   	
     }
-
+*/
     public void miseAJour(Joueur A) {
         
     }
   }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 1053d668c1611724864083ec83ba846b6d97ef6f
