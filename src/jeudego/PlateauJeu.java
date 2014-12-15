@@ -43,12 +43,12 @@ public class PlateauJeu {
         this.joueur2 = new Joueur("noir");
     }
 
-/**
- * Get the value of taille
- *
- * @return the value of taille
- */
-public int getTaille() {
+    /**
+     * Get the value of taille
+     *
+     * @return the value of taille
+     */
+    public int getTaille() {
         return taille;
     }
 
@@ -134,6 +134,27 @@ public int getTaille() {
         return res;
     }
 
+    public boolean pointLibreBlanc(Point point) {
+        boolean res = true;
+        for (int i = 0; i < blanc.size(); i++) {
+            if (this.getBlanc().get(i) == point) {
+                res = false;
+
+            }
+        }
+        return res;
+    }
+
+    public boolean pointLibreNoir(Point point) {
+        boolean res = true;
+        for (int i = 0; i < noir.size(); i++) {
+            if (this.getNoir().get(i) == point) {
+                res = false;
+            }
+        }
+        return res;
+    }
+
     /**
      * Method to determine if there is a suicide (false) or not (true)
      *
@@ -142,37 +163,32 @@ public int getTaille() {
      */
     public boolean suicide(Point point) {
         boolean res = false;
-        
+
         Point A = new Point(point.getx(), point.gety() + 1);
         Point D = new Point(point.getx() - 1, point.gety());
         Point F = new Point(point.getx(), point.gety() - 1);
         Point H = new Point(point.getx() + 1, point.gety());
-        
+
         if (this.pointLibre(A)) {
             res = true;
         }
-        
+
         if (this.pointLibre(D)) {
             res = true;
         }
-        
+
         if (this.pointLibre(F)) {
             res = true;
         }
-        
-        
+
+
         if (this.pointLibre(H)) {
             res = true;
-        }
-        
-        else {
-        	
+        } else {
         }
         return res;
     }
 
     public void miseAJour(Joueur A) {
-        
     }
 }
-
