@@ -146,7 +146,7 @@ public class PlateauJeu {
     }
 
     /**
-     * Method to determine if the point is empty of a determinate color
+     * Method to determine if the point is empty for a determinate color, or both if there is no color precised
      *
      * @param point,couleur
      * @return <pre>true</pre> if point is empty of white, else <pre>false</pre>
@@ -155,6 +155,13 @@ public class PlateauJeu {
         boolean res = true;
         boolean b = true;
         boolean n = true;
+        /*
+         * Les 2 test suivants ont 4 résultats possibles:
+         * si b = false et n = false, cette fonction est inutile car recherche une case
+         * Si b = true et n = true, cette fonction renvoie les cases vides de toutes pièces
+         * Si b = true et n = false, cette fonction renvoie les cases ne contennant pas de pions blancs
+         * Si b = false et n = true, cette fonction renvoie les cases ne contennant pas de pions noirs
+         */
         if(couleur.equals("blanc")){
             b=false;
         }
