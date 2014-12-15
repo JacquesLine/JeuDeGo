@@ -50,7 +50,7 @@ public class Point {
         return "Je suis un point en ["+x+","+y+"].";
     }
     
-    public int liberté(PlateauJeu pl){
+    public int liberte(PlateauJeu pl){
         Point p1=new Point(x+1,y);
         Point p2=new Point(x-1,y);
         Point p3=new Point(x,y+1);
