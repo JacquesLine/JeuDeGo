@@ -80,10 +80,10 @@ public void setCouleur (String color){
         Point p3=new Point(x,y+1);
         Point p4=new Point(x,y-1);
         int S=0;
-        if(pl.pointLibre(p1)){S++;};
-        if(pl.pointLibre(p2)){S++;};
-        if(pl.pointLibre(p3)){S++;};
-        if(pl.pointLibre(p4)){S++;};
+        if(pl.pointLibre(p1,null)){S++;};
+        if(pl.pointLibre(p2,null)){S++;};
+        if(pl.pointLibre(p3,null)){S++;};
+        if(pl.pointLibre(p4,null)){S++;};
         
         return S;
     }
@@ -95,10 +95,10 @@ public void setCouleur (String color){
         Point p4=new Point(x,y-1);
         ArrayList<Point> liste = new ArrayList<Point>();
         
-        if(pl.pointLibre(p1)){liste.add(p1);};
-        if(pl.pointLibre(p2)){liste.add(p2);};
-        if(pl.pointLibre(p3)){liste.add(p3);};
-        if(pl.pointLibre(p4)){liste.add(p4);};
+        if(pl.pointLibre(p1,null)){liste.add(p1);};
+        if(pl.pointLibre(p2,null)){liste.add(p2);};
+        if(pl.pointLibre(p3,null)){liste.add(p3);};
+        if(pl.pointLibre(p4,null)){liste.add(p4);};
         
         return liste;
     }
