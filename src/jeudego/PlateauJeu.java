@@ -209,12 +209,15 @@ public class PlateauJeu {
      */
 /*
      * Method to determine if an precedent configuration come back
+     * voisin is a local boolean which permits to not copy paste some tests
+     * the fonction returns true if the ko rule is respected, if the movement is legal
+     * 
      *
-     * @param point
-     * @param couleur 
+     * @param point this parameter is the play the current player wants to currently play
+     * @param couleur this parameter must contain "blanc" or "noir" which represents the color of the current player
      * @return
      */
-    public boolean confPrecedente(Point point, String couleur){
+    public boolean ko(Point point, String couleur){
         boolean voisin = false;
         if (this.isCaptureAuTourPrecedent()==true){
             if (this.getTourPrecedent().getx()==point.getx() && (this.getTourPrecedent().gety()-point.gety()==-1 || this.getTourPrecedent().gety()-point.gety()==1)){
@@ -229,17 +232,23 @@ public class PlateauJeu {
             Point C = new Point(point.getx() - 1, point.gety() );
             Point D = new Point(point.getx(), point.gety() - 1);
             if (couleur.contains("blanc")){
-                if(this.pointLibreNoir(A) && this.pointLibreNoir(B) && this.pointLibreNoir(C) && this.pointLibreNoir(D)){
+                if(this.pointLibreCouleur(A,"noir") && this.pointLibreCouleur(B,"noir") && this.pointLibreCouleur(C,"noir") && this.pointLibreCouleur(D,"noir")){
                     return false;
                 }
             }
             if (couleur.contains("noir")){
-                if(this.pointLibreBlanc(A) && this.pointLibreBlanc(B) && this.pointLibreBlanc(C) && this.pointLibreBlanc(D)){
+                if(this.pointLibreCouleur(A,"blanc") && this.pointLibreCouleur(B,"blanc") && this.pointLibreCouleur(C,"blanc") && this.pointLibreCouleur(D,"blanc")){
                     return false;
+                }
             }
         }
+<<<<<<< HEAD
         return true;
  }
+=======
+        return true;    
+    }
+>>>>>>> 4d8119653558a146c081324f9ae3590ea29dc60c
     
 
     public PlateauJeu tourDeJeu(Joueur A){
