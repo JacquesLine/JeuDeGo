@@ -146,44 +146,38 @@ public class PlateauJeu {
     }
 
     /**
-     * Method to determine if the point is empty
-     *
-     * @param point
-     * @return <pre>true</pre> if point is empty, else <pre>false</pre>
-     */
-    public boolean pointLibre(Point point) {
-        boolean res = true;
-        for (int i = 0; i < blanc.size(); i++) {
-            if (this.getBlanc().get(i) == point) {
-                res = false;
-            }
-        }
-        for (int i = 0; i < noir.size(); i++) {
-            if (this.getNoir().get(i) == point) {
-                res = false;
-            }
-        }
-        return res;
-    }
-
-    /**
      * Method to determine if the point is empty of a determinate color
      *
      * @param point,couleur
      * @return <pre>true</pre> if point is empty of white, else <pre>false</pre>
      */
-    public boolean pointLibreCouleur(Point point, String couleur) {
+    public boolean pointLibre(Point point, String couleur) {
         boolean res = true;
-        List<Point> pionsCouleur;
+        boolean b = true;
+        boolean n = true;
         if(couleur.equals("blanc")){
-            pionsCouleur=blanc;
+            b=false;
         }
-        else{pionsCouleur=noir;}
+        else{
+            if(couleur.equals("noir")){
+                n=false;
+            }
+        }
         
-        for (int i = 0; i < pionsCouleur.size(); i++) {
-            if (pionsCouleur.get(i).equals(point)) {
-                res = false;
-
+        
+        if(b){
+            for (Point pBlanc : blanc){
+                if (pBlanc.equals(point)){
+                    res = false;
+                }
+            }
+        }
+        
+        if(n){
+            for (Point pNoir : noir){
+                if (pNoir.equals(point)){
+                    res = false;
+                }
             }
         }
         return res;
@@ -197,12 +191,11 @@ public class PlateauJeu {
      */
     public boolean suicide(boolean b) {
         boolean res = false;
-     
+        boolean b = true;
         return res;
     }
     
     /**
-<<<<<<< HEAD
      *
      * @param A the player playing.
      * @return
@@ -232,15 +225,16 @@ public class PlateauJeu {
             Point C = new Point(point.getx() - 1, point.gety() );
             Point D = new Point(point.getx(), point.gety() - 1);
             if (couleur.contains("blanc")){
-                if(this.pointLibreCouleur(A,"noir") && this.pointLibreCouleur(B,"noir") && this.pointLibreCouleur(C,"noir") && this.pointLibreCouleur(D,"noir")){
+                if(this.pointLibre(A,"noir") && this.pointLibre(B,"noir") && this.pointLibre(C,"noir") && this.pointLibre(D,"noir")){
                     return false;
                 }
             }
             if (couleur.contains("noir")){
-                if(this.pointLibreCouleur(A,"blanc") && this.pointLibreCouleur(B,"blanc") && this.pointLibreCouleur(C,"blanc") && this.pointLibreCouleur(D,"blanc")){
+                if(this.pointLibre(A,"blanc") && this.pointLibre(B,"blanc") && this.pointLibre(C,"blanc") && this.pointLibre(D,"blanc")){
                     return false;
                 }
             }
+<<<<<<< HEAD
         }
         return true;
  }
@@ -267,3 +261,11 @@ public class PlateauJeu {
     public void miseAJour(Joueur A) {
     }
   }
+=======
+        }
+        return true;
+ }
+=======
+        return true;    
+    }
+>>>>>>> be72fe002f5074ab96b48d89f2786a6c0d0ae4e5
