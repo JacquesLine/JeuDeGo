@@ -28,24 +28,30 @@ public class Joueur {
         return couleur;
     }
     
-    public Point Jouer(PlateauJeu pl,InputStream in){
+    public void jouer(PlateauJeu pl){
         Point po = new Point(0,0);
         
         System.out.println("Veuillez choisir une case du plateau /n x=");
         
-        Scanner saisie = new Scanner(in);
+        Scanner saisie = new Scanner(System.in);
         
         System.out.println("x=");
         po.setx(saisie.nextInt());
         System.out.println("y=");
         po.sety(saisie.nextInt());
+        
                 
-        if (pl.suicide(po)){
-            return po;}
+        if (pl.pointLibre(po))
+        {          if (this.getCouleur().equals("blanc"))
+                  {pl.getBlanc().add(po);}
+                   else {pl.getNoir().add(po);}
+        }
+       
+        
         else{
             System.out.println("Vous ne pouvez pas poser de pions sur cette case");
-            return Jouer(pl,in);
         }
+        saisie.close();
     }
     
 }

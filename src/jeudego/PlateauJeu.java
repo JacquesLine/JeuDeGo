@@ -31,6 +31,16 @@ public class PlateauJeu {
         this.joueur1 = new Joueur("blanc");
         this.joueur2 = new Joueur("noir");
     }
+    
+    public PlateauJeu(PlateauJeu plateau){
+    	this.taille=plateau.taille;
+    	this.blanc=plateau.blanc;
+    	this.noir=plateau.noir;
+    	this.joueur1=plateau.joueur1;
+    	this.joueur2=this.joueur2;
+    	
+    		
+    }
 
     /*
      * constructeur par defaut
@@ -169,6 +179,19 @@ public int getTaille() {
         	
         }
         return res;
+    }
+    
+    public PlateauJeu tourDeJeu(Joueur A){
+    	System.out.println("C'est au tour du joueur "+A.getCouleur()+" de jouer");
+    	PlateauJeu futur=new PlateauJeu(this);
+    	A.jouer(futur);
+    	if (futur.suicide()) {return futur;}
+    	else {if (futur.ko()) {return futur;}
+    	      else {System.out.println("Ce coup est impossible");
+    	            return this;}
+    	      }
+    	
+    	
     }
 
     public void miseAJour(Joueur A) {
