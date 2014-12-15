@@ -202,7 +202,7 @@ public class PlateauJeu {
      */
     
     /**
-     * Method to determine if an precedent configuration come back
+     * Method to determine if a precedent configuration come back
      * voisin is a local boolean which permits to not copy paste some tests
      * the fonction returns true if the ko rule is respected, if the movement is legal
      * 
