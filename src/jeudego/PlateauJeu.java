@@ -191,8 +191,72 @@ public class PlateauJeu {
      */
     public boolean suicide(boolean b) {
         boolean res = false;
-   
-    public PlateauJeu tourDeJeu(Joueur A){
-    	A.jouer(futur,System.in);
-    	if (futur.suicide()) {return futur;}
 
+        return res;
+    }
+    
+    /**
+     *
+     * @param A the player playing.
+     * @return
+     */
+    
+    /**
+     * Method to determine if an precedent configuration come back
+     * voisin is a local boolean which permits to not copy paste some tests
+     * the fonction returns true if the ko rule is respected, if the movement is legal
+     * 
+     *
+     * @param point this parameter is the play the current player wants to currently play
+     * @param couleur this parameter must contain "blanc" or "noir" which represents the color of the current player
+     * @return true if the ko rule is respected and if the play is legal, false if the it is not legal and the player has to choose an other play
+     */
+    public boolean ko(Point point, String couleur){
+        boolean voisin = false;
+        if (this.isCaptureAuTourPrecedent()==true){
+            if (this.getTourPrecedent().getx()==point.getx() && (this.getTourPrecedent().gety()-point.gety()==-1 || this.getTourPrecedent().gety()-point.gety()==1)){
+                voisin = true;          
+            } else if (this.getTourPrecedent().gety()==point.gety() && (this.getTourPrecedent().getx()-point.getx()==-1 || this.getTourPrecedent().getx()-point.getx()==1)){
+                voisin = true;
+            }
+        } 
+        if(voisin){
+            Point A = new Point(point.getx() + 1, point.gety() );
+            Point B = new Point(point.getx(), point.gety() + 1);
+            Point C = new Point(point.getx() - 1, point.gety() );
+            Point D = new Point(point.getx(), point.gety() - 1);
+            if (couleur.contains("blanc")){
+                if(this.pointLibre(A,"noir") && this.pointLibre(B,"noir") && this.pointLibre(C,"noir") && this.pointLibre(D,"noir")){
+                    return false;
+                }
+            }
+            if (couleur.contains("noir")){
+                if(this.pointLibre(A,"blanc") && this.pointLibre(B,"blanc") && this.pointLibre(C,"blanc") && this.pointLibre(D,"blanc")){
+                    return false;
+                }
+            }
+        }
+        return true;
+ }
+
+    //TODO La fonction tourDeJeu est peine d'erreurs, à faire quand suicide() sera prêt
+    /*public PlateauJeu tourDeJeu(Joueur A){
+    	System.out.println("C'est au tour du joueur "+A.getCouleur()+" de jouer");
+    	boolean b= true;
+    	if (A.getCouleur().equals("blanc")){b=true;}
+    	else{b=false;}
+    	PlateauJeu futur=new PlateauJeu(this);
+    	A.jouer(futur);
+    	if (futur.suicide(b)) {return futur;}
+    	else {if (futur.ko()) {return futur;}
+    	      else {System.out.println("Ce coup est impossible");
+    	            return this;}
+    	      }
+    	
+   	
+    }
+*/
+    public void miseAJour(Joueur A) {
+        
+    }
+  }
