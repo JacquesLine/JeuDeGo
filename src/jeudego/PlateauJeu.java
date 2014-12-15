@@ -177,40 +177,24 @@ public class PlateauJeu {
         return res;
     }
 
+    
     /**
-     * Method to determine if there is a suicide 
-     *
-     * @param point
-     * @return <pre>false</pre> if suicide, else <pre>false</pre>
+     * This method verifies if there is a suicide
+     * @param b represents the color here, true for white, false for black
+     * @return
      */
-    public boolean suicide(Point point) {
+    public boolean suicide(boolean b) {
         boolean res = false;
 
-        Point A = new Point(point.getx(), point.gety() + 1);
-        Point D = new Point(point.getx() - 1, point.gety());
-        Point F = new Point(point.getx(), point.gety() - 1);
-        Point H = new Point(point.getx() + 1, point.gety());
-
-        if (this.pointLibre(A)) {
-            res = true;
-        }
-
-        if (this.pointLibre(D)) {
-            res = true;
-        }
-
-        if (this.pointLibre(F)) {
-            res = true;
-        }
-
-
-        if (this.pointLibre(H)) {
-            res = true;
-        } else {
-        }
+     
         return res;
     }
     
+    /**
+     *
+     * @param A the player playing.
+     * @return
+     */
     public PlateauJeu tourDeJeu(Joueur A){
     	System.out.println("C'est au tour du joueur "+A.getCouleur()+" de jouer");
     	PlateauJeu futur=new PlateauJeu(this);
