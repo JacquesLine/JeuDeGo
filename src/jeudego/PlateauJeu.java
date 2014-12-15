@@ -225,9 +225,12 @@ public class PlateauJeu {
     
     /**
      * Method to determine if an precedent configuration come back
+     * voisin is a local boolean which permits to not copy paste some tests
+     * the fonction returns true if the ko rule is respected, if the movement is legal
+     * 
      *
-     * @param point
-     * @param couleur 
+     * @param point this parameter is the play the current player wants to currently play
+     * @param couleur this parameter must contain "blanc" or "noir" which represents the color of the current player
      * @return
      */
     public boolean ko(Point point, String couleur){
