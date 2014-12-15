@@ -191,7 +191,6 @@ public class PlateauJeu {
      */
     public boolean suicide(boolean b) {
         boolean res = false;
-        boolean b = true;
         return res;
     }
     
@@ -234,7 +233,6 @@ public class PlateauJeu {
                     return false;
                 }
             }
-<<<<<<< HEAD
         }
         return true;
  }
@@ -261,27 +259,3 @@ public class PlateauJeu {
     public void miseAJour(Joueur A) {
     }
   }
-=======
-        }
-        return true;
- }
-
-    public PlateauJeu tourDeJeu(Joueur A){
-    	System.out.println("C'est au tour du joueur "+A.getCouleur()+" de jouer");
-    	PlateauJeu futur=new PlateauJeu(this);
-    	A.jouer(futur);
-    	if (futur.suicide()) {return futur;}
-    	else {if (futur.ko()) {return futur;}
-    	      else {System.out.println("Ce coup est impossible");
-    	            return this;}
-    	      }
-    	
-    	
-    }
-
-    public void miseAJour(Joueur A) {
-    }
-  }
-        return true;    
-    }
->>>>>>> be72fe002f5074ab96b48d89f2786a6c0d0ae4e5
