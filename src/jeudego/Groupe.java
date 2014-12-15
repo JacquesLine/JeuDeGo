@@ -37,12 +37,14 @@ public class Groupe {
     	this.pions.add(p);
     }
     
-    public int liberte (PlateauJeu pl){
-        int S=0;
+    public boolean liberte (PlateauJeu pl){
+        boolean a = false;
         for(Pion pion : pions){
-            S=S+pion.getpos().liberte(pl);
+            if(pion.getpos().liberte(pl)){
+                a=true;
+            }
         }
-        return S;
+        return a;
     }
     
     public Groupe fusion(Groupe a, Groupe b){
