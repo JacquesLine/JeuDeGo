@@ -13,16 +13,25 @@ import java.util.ArrayList;
 public class Point {
     private int x;
     private int y;
+    private String couleur;
+    
+    public Point(int x,int y, String couleur){
+        this.x=x;
+        this.y=y;
+        this.couleur=couleur;
+    }
     
     public Point(int x,int y){
         this.x=x;
         this.y=y;
+        this.couleur=null;
         
     }
     
     public Point (Point p){
         this.x=p.x;
         this.y=p.y;
+        this.couleur=p.couleur;
     }
     
     public int getx(){
