@@ -61,18 +61,18 @@ public class Point {
         return a;
     }
     
-    public int liberte(PlateauJeu pl){
+    public boolean liberte(PlateauJeu pl){
         Point p1=new Point(x+1,y);
         Point p2=new Point(x-1,y);
         Point p3=new Point(x,y+1);
         Point p4=new Point(x,y-1);
-        int S=0;
-        if(pl.pointLibre(p1,null)){S++;};
-        if(pl.pointLibre(p2,null)){S++;};
-        if(pl.pointLibre(p3,null)){S++;};
-        if(pl.pointLibre(p4,null)){S++;};
+        boolean a=false;
+        if(pl.pointLibre(p1,null)){a=true;};
+        if(pl.pointLibre(p2,null)){a=true;};
+        if(pl.pointLibre(p3,null)){a=true;};
+        if(pl.pointLibre(p4,null)){a=true;};
         
-        return S;
+        return a;
     }
     
     public ArrayList<Point> casesLibres(PlateauJeu pl){
