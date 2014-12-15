@@ -208,7 +208,7 @@ public class PlateauJeu {
      *
      * @param point this parameter is the play the current player wants to currently play
      * @param couleur this parameter must contain "blanc" or "noir" which represents the color of the current player
-     * @return
+     * @return true if the ko rule is respected and if the play is legal, false if the it is not legal and the player has to choose an other play
      */
     public boolean ko(Point point, String couleur){
         boolean voisin = false;
@@ -265,7 +265,23 @@ public class PlateauJeu {
         }
         return true;
  }
-=======
+
+    public PlateauJeu tourDeJeu(Joueur A){
+    	System.out.println("C'est au tour du joueur "+A.getCouleur()+" de jouer");
+    	PlateauJeu futur=new PlateauJeu(this);
+    	A.jouer(futur);
+    	if (futur.suicide()) {return futur;}
+    	else {if (futur.ko()) {return futur;}
+    	      else {System.out.println("Ce coup est impossible");
+    	            return this;}
+    	      }
+    	
+    	
+    }
+
+    public void miseAJour(Joueur A) {
+    }
+  }
         return true;    
     }
 >>>>>>> be72fe002f5074ab96b48d89f2786a6c0d0ae4e5
