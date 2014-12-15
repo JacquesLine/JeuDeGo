@@ -114,7 +114,7 @@ public class PlateauJeu {
     }
 
     /**
-     * Method to determine if the point is empty 
+     * Method to determine if the point is empty
      *
      * @param point
      * @return <pre>true</pre> if point is empty, else <pre>false</pre>
@@ -133,12 +133,13 @@ public class PlateauJeu {
         }
         return res;
     }
-    
-/**
- * Method to determine if the point is empty of white
- * @param point
- * @return <pre>true</pre> if point is empty of white, else <pre>false</pre>
- */
+
+    /**
+     * Method to determine if the point is empty of white
+     *
+     * @param point
+     * @return <pre>true</pre> if point is empty of white, else <pre>false</pre>
+     */
     public boolean pointLibreBlanc(Point point) {
         boolean res = true;
         for (int i = 0; i < blanc.size(); i++) {
@@ -149,12 +150,13 @@ public class PlateauJeu {
         }
         return res;
     }
-    
-/**
- * Method to determine if the point is empty of black
- * @param point
- * @return <pre>true</pre> if point is empty of black, else <pre>false</pre>
- */
+
+    /**
+     * Method to determine if the point is empty of black
+     *
+     * @param point
+     * @return <pre>true</pre> if point is empty of black, else <pre>false</pre>
+     */
     public boolean pointLibreNoir(Point point) {
         boolean res = true;
         for (int i = 0; i < noir.size(); i++) {
@@ -171,7 +173,6 @@ public class PlateauJeu {
      * @param point
      * @return
      */
-   
     public boolean suicide(Point point) {
         boolean res = false;
 
