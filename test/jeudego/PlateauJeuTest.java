@@ -15,14 +15,14 @@ import static org.junit.Assert.*;
  * @author vvielzeu
  */
 public class PlateauJeuTest {
-    
+
     public PlateauJeuTest() {
     }
-    
+
     @BeforeClass
     public static void setUpClass() {
     }
-    
+
     @AfterClass
     public static void tearDownClass() {
     }
@@ -33,18 +33,14 @@ public class PlateauJeuTest {
     @Test
     public void testPointLibre() {
         System.out.println("pointLibre");
-        Point point =null;
-        point.setx(0);
-        point.sety(0);
-        point.setCouleur(null);
+        Point point = new Point(0,0);
+        String couleur = "blanc";
         PlateauJeu instance = new PlateauJeu();
         boolean expResult = true;
-        boolean result = instance.pointLibre(point,point.getCouleur());
+        boolean result = instance.pointLibre(point, couleur);
         assertEquals(expResult, result);
     }
-
-    }
-
-    /**
-     * Test of suicide method, of class PlateauJeu.
-     */
+}
+/**
+ * Test of suicide method, of class PlateauJeu.
+ */
