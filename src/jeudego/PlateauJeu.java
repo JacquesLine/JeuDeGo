@@ -143,37 +143,31 @@ public int getTaille() {
      */
     public boolean suicide(Point point) {
         boolean res = false;
-        Point A = new Point(point.getx() + 1, point.gety() + 1);
-        Point B = new Point(point.getx(), point.gety() + 1);
-        Point C = new Point(point.getx() - 1, point.gety() + 1);
+        
+        Point A = new Point(point.getx(), point.gety() + 1);
         Point D = new Point(point.getx() - 1, point.gety());
-        Point E = new Point(point.getx() - 1, point.gety() - 1);
         Point F = new Point(point.getx(), point.gety() - 1);
-        Point G = new Point(point.getx() + 1, point.gety() - 1);
         Point H = new Point(point.getx() + 1, point.gety());
+        
         if (this.pointLibre(A)) {
             res = true;
         }
-        if (this.pointLibre(B)) {
-            res = true;
-        }
-        if (this.pointLibre(C)) {
-            res = true;
-        }
+        
         if (this.pointLibre(D)) {
             res = true;
         }
-        if (this.pointLibre(E)) {
-            res = true;
-        }
+        
         if (this.pointLibre(F)) {
             res = true;
         }
-        if (this.pointLibre(G)) {
-            res = true;
-        }
+        
+        
         if (this.pointLibre(H)) {
             res = true;
+        }
+        
+        else {
+        	
         }
         return res;
     }
