@@ -43,7 +43,7 @@ public class PlateauJeu {
         this.tourPrecedent = new Point(1,1);
         this.captureAuTourPrecedent=false;
     	this.joueur1=plateau.joueur1;
-    	this.joueur2=this.joueur2;
+    	this.joueur2=plateau.joueur2;
     	
     		
     }
@@ -197,7 +197,6 @@ public class PlateauJeu {
      */
     public boolean suicide(boolean b) {
         boolean res = false;
-
      
         return res;
     }
@@ -208,7 +207,7 @@ public class PlateauJeu {
      * @param A the player playing.
      * @return
      */
-=======
+/*
      * Method to determine if an precedent configuration come back
      *
      * @param point
@@ -240,14 +239,17 @@ public class PlateauJeu {
             }
         }
         return true;
-    }
+ }
     
->>>>>>> df2023fef9d7af4e294fbdfe6c12cfdb43ddad9d
+
     public PlateauJeu tourDeJeu(Joueur A){
     	System.out.println("C'est au tour du joueur "+A.getCouleur()+" de jouer");
+    	boolean b= true;
+    	if (A.getCouleur().equals("blanc")){b=true;}
+    	else{b=false;}
     	PlateauJeu futur=new PlateauJeu(this);
     	A.jouer(futur);
-    	if (futur.suicide()) {return futur;}
+    	if (futur.suicide(b)) {return futur;}
     	else {if (futur.ko()) {return futur;}
     	      else {System.out.println("Ce coup est impossible");
     	            return this;}
@@ -258,4 +260,4 @@ public class PlateauJeu {
 
     public void miseAJour(Joueur A) {
     }
-}
+  }
