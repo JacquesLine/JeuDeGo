@@ -13,20 +13,54 @@ import java.util.List;
  */
 public class Groupe {
     private List<Pion> pions;
-    private final String couleur;
-    
+        private String couleur;
+
+    /**
+     * Get the value of couleur
+     *
+     * @return the value of couleur
+     */
+    public String getCouleur() {
+        return couleur;
+    }
+
+    /**
+     * Set the value of couleur
+     *
+     * @param couleur new value of couleur
+     */
+    public void setCouleur(String couleur) {
+        this.couleur = couleur;
+    }
+
+    /**
+     * constructeur de Groupe complet
+     * @param c
+     * @param l 
+     */
     public Groupe(String c,List l){
         this.pions=l;
         this.couleur=c;
     }
     
+    /**
+     * constructeur de Groupe vide
+     * @param c 
+     */
     public Groupe(String c){
         this.pions=new ArrayList<Pion>();
         this.couleur=c;
     }
     
-    public String getCouleur(){
-        return couleur;
+    /**
+     * constructeur de nouveaux groupes
+     * @param pion 
+     */
+    public Groupe(Pion pion){
+        this.pions = new ArrayList<>();
+        this.pions.add(pion);
+        this.couleur= pion.getColor();
+        
     }
     
     public List<Pion> getPions(){
@@ -45,6 +79,12 @@ public class Groupe {
         return S;
     }
     
+    /**
+     * regroupe 2 groupes de pions en 1 seul
+     * @param a
+     * @param b
+     * @return 
+     */
     public Groupe fusion(Groupe a, Groupe b){
     	Groupe c=new Groupe(a.getCouleur());
     	for (Pion pion:a.getPions()) {c.getPions().add(pion);}
@@ -52,7 +92,11 @@ public class Groupe {
     	return c;
     	
     }
-    
+    /**
+     * 
+     * @param pl
+     * @return 
+     */
     public ArrayList<Point> casesLibres (PlateauJeu pl){
         ArrayList<Point> liste = new ArrayList<Point>();
         liste.add(pions.get(0).getpos().casesLibres(pl).get(0));
