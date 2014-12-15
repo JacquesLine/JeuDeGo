@@ -4,6 +4,8 @@
  */
 package jeudego;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author cbrandon
@@ -46,6 +48,35 @@ public class Point {
     @Override
     public String toString(){
         return "Je suis un point en ["+x+","+y+"].";
+    }
+    
+    public int liberté(PlateauJeu pl){
+        Point p1=new Point(x+1,y);
+        Point p2=new Point(x-1,y);
+        Point p3=new Point(x,y+1);
+        Point p4=new Point(x,y-1);
+        int S=0;
+        if(pl.pointLibre(p1)){S++;};
+        if(pl.pointLibre(p2)){S++;};
+        if(pl.pointLibre(p3)){S++;};
+        if(pl.pointLibre(p4)){S++;};
+        
+        return S;
+    }
+    
+    public ArrayList<Point> casesLibres(PlateauJeu pl){
+        Point p1=new Point(x+1,y);
+        Point p2=new Point(x-1,y);
+        Point p3=new Point(x,y+1);
+        Point p4=new Point(x,y-1);
+        ArrayList<Point> liste = new ArrayList<Point>();
+        
+        if(pl.pointLibre(p1)){liste.add(p1);};
+        if(pl.pointLibre(p2)){liste.add(p2);};
+        if(pl.pointLibre(p3)){liste.add(p3);};
+        if(pl.pointLibre(p4)){liste.add(p4);};
+        
+        return liste;
     }
     
 }
