@@ -190,12 +190,8 @@ public class PlateauJeu {
      * @return
      */
     public boolean suicide(boolean b) {
-<<<<<<< HEAD
-        boolean res = false;
-=======
         boolean res = false;
 
->>>>>>> 1053d668c1611724864083ec83ba846b6d97ef6f
         return res;
     }
     
@@ -264,7 +260,4 @@ public class PlateauJeu {
         
     }
   }
-<<<<<<< HEAD
 
-=======
->>>>>>> 1053d668c1611724864083ec83ba846b6d97ef6f
