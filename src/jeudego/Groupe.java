@@ -32,4 +32,8 @@ public class Groupe {
     public List<Point> getPions(){
         return pions;
     }
+    
+    public void ajouter(Point p){
+    	this.pions.add(p);
+    }
 }
