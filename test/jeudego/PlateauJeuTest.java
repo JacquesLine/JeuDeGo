@@ -46,32 +46,20 @@ public class PlateauJeuTest {
      * Test of pointLibreBlanc method, of class PlateauJeu.
      */
     @Test
-    public void testPointLibreBlanc() {
+    public void testPointLibreCouleur() {
         System.out.println("pointLibreBlanc");
         Point point =null;
         point.setx(0);
         point.sety(0);
+        point.setCouleur(null);
         PlateauJeu instance = new PlateauJeu();
         boolean expResult = true;
-        boolean result = instance.pointLibreBlanc(point);
+        boolean result = instance.pointLibreCouleur(point,point.getCouleur());
         assertEquals(expResult, result);
     }
 
-    /**
-     * Test of pointLibreNoir method, of class PlateauJeu.
-     */
-    @Test
-    public void testPointLibreNoir() {
-        System.out.println("pointLibreNoir");
-        Point point =null;
-        point.setx(0);
-        point.sety(0);
-        PlateauJeu instance = new PlateauJeu();
-        boolean expResult = true;
-        boolean result = instance.pointLibreNoir(point);
-        assertEquals(expResult, result);
     }
-}
+
     /**
      * Test of suicide method, of class PlateauJeu.
      */
