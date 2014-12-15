@@ -242,9 +242,12 @@ public class PlateauJeu {
     //TODO La fonction tourDeJeu est peine d'erreurs, à faire quand suicide() sera prêt
     /*public PlateauJeu tourDeJeu(Joueur A){
     	System.out.println("C'est au tour du joueur "+A.getCouleur()+" de jouer");
+    	boolean b= true;
+    	if (A.getCouleur().equals("blanc")){b=true;}
+    	else{b=false;}
     	PlateauJeu futur=new PlateauJeu(this);
     	A.jouer(futur);
-    	if (futur.suicide()) {return futur;}
+    	if (futur.suicide(b)) {return futur;}
     	else {if (futur.ko()) {return futur;}
     	      else {System.out.println("Ce coup est impossible");
     	            return this;}
@@ -257,4 +260,3 @@ public class PlateauJeu {
         
     }
   }
-        
