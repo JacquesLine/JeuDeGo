@@ -145,33 +145,23 @@ public class PlateauJeu {
     }
 
     /**
-     * Method to determine if the point is empty of white
+     * Method to determine if the point is empty of a determinate color
      *
-     * @param point
+     * @param point,couleur
      * @return <pre>true</pre> if point is empty of white, else <pre>false</pre>
      */
-    public boolean pointLibreBlanc(Point point) {
+    public boolean pointLibreCouleur(Point point, String couleur) {
         boolean res = true;
-        for (int i = 0; i < blanc.size(); i++) {
-            if (this.getBlanc().get(i) == point) {
-                res = false;
-
-            }
+        List<Point> pionsCouleur;
+        if(couleur.equals("blanc")){
+            pionsCouleur=blanc;
         }
-        return res;
-    }
-
-    /**
-     * Method to determine if the point is empty of black
-     *
-     * @param point
-     * @return <pre>true</pre> if point is empty of black, else <pre>false</pre>
-     */
-    public boolean pointLibreNoir(Point point) {
-        boolean res = true;
-        for (int i = 0; i < noir.size(); i++) {
-            if (this.getNoir().get(i) == point) {
+        else{pionsCouleur=noir;}
+        
+        for (int i = 0; i < pionsCouleur.size(); i++) {
+            if (pionsCouleur.get(i).equals(point)) {
                 res = false;
+
             }
         }
         return res;
