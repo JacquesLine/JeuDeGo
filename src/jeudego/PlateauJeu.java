@@ -39,17 +39,16 @@ public class PlateauJeu {
         this.taille = 9;
         this.blanc = new ArrayList<Point>();
         this.noir = new ArrayList<Point>();
-        taille = 9;
         this.joueur1 = new Joueur("blanc");
         this.joueur2 = new Joueur("noir");
     }
 
-    /**
-     * Get the value of taille
-     *
-     * @return the value of taille
-     */
-    public int getTaille() {
+/**
+ * Get the value of taille
+ *
+ * @return the value of taille
+ */
+public int getTaille() {
         return taille;
     }
 
@@ -135,26 +134,6 @@ public class PlateauJeu {
         return res;
     }
 
-    public boolean pointLibreBlanc(Point point) {
-        boolean res = true;
-        for (int i = 0; i < blanc.size(); i++) {
-            if (this.getBlanc().get(i) == point) {
-                res = false;
-            }
-        }
-        return res;
-    }
-
-    public boolean pointLibreNoir(Point point) {
-        boolean res = true;
-        for (int i = 0; i < noir.size(); i++) {
-            if (this.getNoir().get(i) == point) {
-                res = false;
-            }
-        }
-        return res;
-    }
-
     /**
      * Method to determine if there is a suicide (false) or not (true)
      *
@@ -193,5 +172,7 @@ public class PlateauJeu {
     }
 
     public void miseAJour(Joueur A) {
+        
     }
 }
+
