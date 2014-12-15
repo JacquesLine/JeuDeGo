@@ -191,6 +191,7 @@ public class PlateauJeu {
      */
     public boolean suicide(boolean b) {
         boolean res = false;
+
         return res;
     }
     

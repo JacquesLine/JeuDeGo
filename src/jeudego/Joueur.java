@@ -28,7 +28,7 @@ public class Joueur {
         return couleur;
     }
     
-    public void jouer(PlateauJeu pl){
+    public void jouer(PlateauJeu pl, InputStream in){
         Point po = new Point(0,0);
         
         System.out.println("Veuillez choisir une case du plateau /n x=");

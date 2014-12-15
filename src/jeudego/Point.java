@@ -54,7 +54,12 @@ public class Point {
         this.x=x;
         this.y=y;
     }
-    
+    public String getCouleur (){
+        return this.couleur;
+    }
+public void setCouleur (String color){
+    this.couleur = color;
+}
     @Override
     public String toString(){
         return "Je suis un point en ["+x+","+y+"].";
