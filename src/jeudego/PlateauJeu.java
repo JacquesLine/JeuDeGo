@@ -53,12 +53,12 @@ public class PlateauJeu {
         this.joueur2 = new Joueur("noir");
     }
 
-/**
- * Get the value of taille
- *
- * @return the value of taille
- */
-public int getTaille() {
+    /**
+     * Get the value of taille
+     *
+     * @return the value of taille
+     */
+    public int getTaille() {
         return taille;
     }
 
@@ -124,10 +124,10 @@ public int getTaille() {
     }
 
     /**
-     * Method to determine if the point is empty (true) or not (false)
+     * Method to determine if the point is empty
      *
      * @param point
-     * @return boolean res
+     * @return <pre>true</pre> if point is empty, else <pre>false</pre>
      */
     public boolean pointLibre(Point point) {
         boolean res = true;
@@ -145,38 +145,68 @@ public int getTaille() {
     }
 
     /**
-     * Method to determine if there is a suicide (false) or not (true)
+     * Method to determine if the point is empty of white
      *
      * @param point
-     * @return
+     * @return <pre>true</pre> if point is empty of white, else <pre>false</pre>
+     */
+    public boolean pointLibreBlanc(Point point) {
+        boolean res = true;
+        for (int i = 0; i < blanc.size(); i++) {
+            if (this.getBlanc().get(i) == point) {
+                res = false;
+
+            }
+        }
+        return res;
+    }
+
+    /**
+     * Method to determine if the point is empty of black
+     *
+     * @param point
+     * @return <pre>true</pre> if point is empty of black, else <pre>false</pre>
+     */
+    public boolean pointLibreNoir(Point point) {
+        boolean res = true;
+        for (int i = 0; i < noir.size(); i++) {
+            if (this.getNoir().get(i) == point) {
+                res = false;
+            }
+        }
+        return res;
+    }
+
+    /**
+     * Method to determine if there is a suicide 
+     *
+     * @param point
+     * @return <pre>false</pre> if suicide, else <pre>false</pre>
      */
     public boolean suicide(Point point) {
         boolean res = false;
-        
+
         Point A = new Point(point.getx(), point.gety() + 1);
         Point D = new Point(point.getx() - 1, point.gety());
         Point F = new Point(point.getx(), point.gety() - 1);
         Point H = new Point(point.getx() + 1, point.gety());
-        
+
         if (this.pointLibre(A)) {
             res = true;
         }
-        
+
         if (this.pointLibre(D)) {
             res = true;
         }
-        
+
         if (this.pointLibre(F)) {
             res = true;
         }
-        
-        
+
+
         if (this.pointLibre(H)) {
             res = true;
-        }
-        
-        else {
-        	
+        } else {
         }
         return res;
     }
@@ -195,7 +225,5 @@ public int getTaille() {
     }
 
     public void miseAJour(Joueur A) {
-        
     }
 }
-
