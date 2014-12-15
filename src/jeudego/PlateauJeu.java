@@ -168,10 +168,10 @@ public class PlateauJeu {
     }
 
     /**
-     * Method to determine if there is a suicide (false) or not (true)
+     * Method to determine if there is a suicide 
      *
      * @param point
-     * @return
+     * @return <pre>false</pre> if suicide, else <pre>false</pre>
      */
     public boolean suicide(Point point) {
         boolean res = false;
