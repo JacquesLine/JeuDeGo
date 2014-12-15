@@ -50,6 +50,15 @@ public class Point {
         return "Je suis un point en ["+x+","+y+"].";
     }
     
+    public boolean equals(Point po){
+        boolean a;
+        if(this.x==po.getx() && this.y==po.gety()){
+            a=true;
+        }
+        else{a=false;}
+        return a;
+    }
+    
     public int liberte(PlateauJeu pl){
         Point p1=new Point(x+1,y);
         Point p2=new Point(x-1,y);

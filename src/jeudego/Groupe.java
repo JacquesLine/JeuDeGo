@@ -36,4 +36,31 @@ public class Groupe {
     public void ajouter(Point p){
     	this.pions.add(p);
     }
+    
+    public int liberte (PlateauJeu pl){
+        int S=0;
+        for(Point pion : pions){
+            S=S+pion.liberte(pl);
+        }
+        return S;
+    }
+    
+    public ArrayList<Point> casesLibres (PlateauJeu pl){
+        ArrayList<Point> liste = new ArrayList<Point>();
+        liste.add(pions.get(0).casesLibres(pl).get(0));
+        
+        for (Point pion : pions){
+            for (Point caseLibre : pion.casesLibres(pl)){
+                for (Point element : liste){
+                    
+                    if (element.equals(caseLibre)){
+                        System.out.println("Point déjà dans la liste");
+                    }
+                    else{liste.add(caseLibre);}
+                }
+                
+            }
+        }
+        return liste;
+    }
 }
