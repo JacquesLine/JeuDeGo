@@ -41,7 +41,7 @@ public class Joueur {
         po.sety(saisie.nextInt());
         
                 
-        if (pl.pointLibre(po))
+        if (pl.pointLibre(po,null))
         {          if (this.getCouleur().equals("blanc"))
                   {pl.getBlanc().add(po);}
                    else {pl.getNoir().add(po);}
