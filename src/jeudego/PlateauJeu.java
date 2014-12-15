@@ -189,6 +189,7 @@ public class PlateauJeu {
      * @param b represents the color here, true for white, false for black
      * @return
      */
+<<<<<<< HEAD
     public boolean suicide(boolean b) {
         boolean res = false;
 
@@ -261,3 +262,12 @@ public class PlateauJeu {
     }
   }
 
+=======
+    public boolean suicide(boolean b) {
+        boolean res = false;
+   
+    public PlateauJeu tourDeJeu(Joueur A){
+    	A.jouer(futur,System.in);
+    	if (futur.suicide()) {return futur;}
+
+>>>>>>> 306212a75ea0a202807ccdd88c1b51090bfa6079
