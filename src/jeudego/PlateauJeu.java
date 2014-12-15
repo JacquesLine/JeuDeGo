@@ -241,7 +241,7 @@ public class PlateauJeu {
     public PlateauJeu tourDeJeu(Joueur A){
     	System.out.println("C'est au tour du joueur "+A.getCouleur()+" de jouer");
     	PlateauJeu futur=new PlateauJeu(this);
-    	A.jouer(futur);
+    	A.jouer(futur,System.in);
     	if (futur.suicide()) {return futur;}
     	else {if (futur.ko()) {return futur;}
     	      else {System.out.println("Ce coup est impossible");
