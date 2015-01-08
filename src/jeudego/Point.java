@@ -52,7 +52,7 @@ public class Point {
         return "Je suis un point en ["+x+","+y+"].";
     }
     
-    public boolean equals(Point po){
+    public boolean estegal(Point po){
         boolean a;
         if(this.x==po.getx() && this.y==po.gety()){
             a=true;
