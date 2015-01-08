@@ -174,7 +174,7 @@ public class PlateauJeu {
         
         if(b){
             for (Point pBlanc : blanc){
-                if (pBlanc.equals(point)){
+                if (pBlanc.estegal(point)){
                     res = false;
                 }
             }
@@ -182,7 +182,7 @@ public class PlateauJeu {
         
         if(n){
             for (Point pNoir : noir){
-                if (pNoir.equals(point)){
+                if (pNoir.estegal(point)){
                     res = false;
                 }
             }
@@ -196,9 +196,8 @@ public class PlateauJeu {
      * @param b represents the color here, true for white, false for black
      * @return
      */
-    public boolean suicide(boolean b) {
+    public boolean suicide() {
         boolean res = false;
-
         return res;
     }
     

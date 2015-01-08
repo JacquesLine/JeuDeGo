@@ -9,25 +9,32 @@ public class Pion {
  public Pion (Point p, String s,PlateauJeu pl){
 	 this.pos=p;
 	 this.color=s;
-	 this.plateau=pl;
-	 
+	 this.plateau=pl;	 
 }
  
-public Point getpos(){return this.pos;}
+public Point getpos(){return this.pos;
+}
 
-public String getColor(){return this.color;}
+public String getColor(){return this.color;
+}
 
-public PlateauJeu getPlateau(){return this.plateau;}
+public PlateauJeu getPlateau(){return this.plateau;
+}
 
-public void setpos(Point p){this.pos=p;}
+public void setpos(Point p){this.pos=p;
+}
 
-public void setColor(String c){this.color=c;}
+public void setColor(String c){this.color=c;
+}
 
-public void setPlateau(PlateauJeu plato){this.plateau=plato;}
+public void setPlateau(PlateauJeu plato){this.plateau=plato;
+}
 
-public Groupe getGroupe(){return this.group;}
+public Groupe getGroupe(){return this.group;
+}
 
-public void setGroupe(Groupe G){this.group=G;}
+public void setGroupe(Groupe G){this.group=G;
+}
 
 
  

@@ -89,8 +89,18 @@ public class Groupe {
      */
     public Groupe fusion(Groupe a, Groupe b){
     	Groupe c=new Groupe(a.getCouleur());
-    	for (Pion pion:a.getPions()) {c.getPions().add(pion);}
-    	for (Pion pion:b.getPions()) {c.getPions().add(pion);}
+<<<<<<< HEAD
+    	for (Pion pion:a.getPions()) {c.getPions().add(pion);
+        }
+    	for (Pion pion:b.getPions()) {c.getPions().add(pion);
+=======
+    	for (Pion pion:a.getPions()) {
+            c.getPions().add(pion);
+        }
+    	for (Pion pion:b.getPions()) {
+            c.getPions().add(pion);
+>>>>>>> 884732ca9b4cd736a7c9ddb1352ecbef8509b0be
+        }
     	return c;
     	
     }
@@ -99,7 +109,7 @@ public class Groupe {
      * @param pl
      * @return 
      */
-    public ArrayList<Point> casesLibres (PlateauJeu pl){
+    public List<Point> casesLibres (PlateauJeu pl){
         ArrayList<Point> liste = new ArrayList<Point>();
         liste.add(pions.get(0).getpos().casesLibres(pl).get(0));
         
@@ -107,10 +117,17 @@ public class Groupe {
             for (Point caseLibre : pion.getpos().casesLibres(pl)){
                 for (Point element : liste){
                     
-                    if (element.equals(caseLibre)){
+                    if (element.estegal(caseLibre)){
                         System.out.println("Point déjà dans la liste");
                     }
-                    else{liste.add(caseLibre);}
+<<<<<<< HEAD
+                     else{liste.add(caseLibre);
+                     }
+=======
+                    else{
+                        liste.add(caseLibre);
+                    }
+>>>>>>> 884732ca9b4cd736a7c9ddb1352ecbef8509b0be
                 }
                 
             }
