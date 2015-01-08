@@ -22,7 +22,6 @@ public class Point {
     public Point(int x,int y){
         this.x=x;
         this.y=y;
-        
     }
     
     /**
@@ -110,13 +109,8 @@ public class Point {
         Point p2=new Point(x-1,y);
         Point p3=new Point(x,y+1);
         Point p4=new Point(x,y-1);
-        boolean a=false;
-        if(pl.pointLibre(p1,"tout")){a=true;};
-        if(pl.pointLibre(p2,"tout")){a=true;};
-        if(pl.pointLibre(p3,"tout")){a=true;};
-        if(pl.pointLibre(p4,"tout")){a=true;};
         
-        return a;
+        return (pl.pointLibre(p1,"tout")||pl.pointLibre(p2,"tout") ||pl.pointLibre(p3,"tout") ||pl.pointLibre(p4,"tout"));
     }
     
     /**
