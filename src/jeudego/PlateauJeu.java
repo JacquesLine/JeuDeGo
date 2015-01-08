@@ -174,7 +174,7 @@ public class PlateauJeu {
         
         if(b){
             for (Point pBlanc : blanc){
-                if (pBlanc.estegal(point)){
+                if (pBlanc.equals(point)){
                     res = false;
                 }
             }
@@ -182,7 +182,7 @@ public class PlateauJeu {
         
         if(n){
             for (Point pNoir : noir){
-                if (pNoir.estegal(point)){
+                if (pNoir.equals(point)){
                     res = false;
                 }
             }
