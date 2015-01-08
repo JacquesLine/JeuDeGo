@@ -196,9 +196,8 @@ public class PlateauJeu {
      * @param b represents the color here, true for white, false for black
      * @return
      */
-    public boolean suicide(boolean b) {
+    public boolean suicide() {
         boolean res = false;
-
         return res;
     }
     

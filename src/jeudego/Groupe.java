@@ -89,8 +89,10 @@ public class Groupe {
      */
     public Groupe fusion(Groupe a, Groupe b){
     	Groupe c=new Groupe(a.getCouleur());
-    	for (Pion pion:a.getPions()) {c.getPions().add(pion);}
-    	for (Pion pion:b.getPions()) {c.getPions().add(pion);}
+    	for (Pion pion:a.getPions()) {c.getPions().add(pion);
+        }
+    	for (Pion pion:b.getPions()) {c.getPions().add(pion);
+        }
     	return c;
     	
     }
@@ -99,7 +101,7 @@ public class Groupe {
      * @param pl
      * @return 
      */
-    public ArrayList<Point> casesLibres (PlateauJeu pl){
+    public List<Point> casesLibres (PlateauJeu pl){
         ArrayList<Point> liste = new ArrayList<Point>();
         liste.add(pions.get(0).getpos().casesLibres(pl).get(0));
         
@@ -110,7 +112,8 @@ public class Groupe {
                     if (element.equals(caseLibre)){
                         System.out.println("Point déjà dans la liste");
                     }
-                    else{liste.add(caseLibre);}
+                     else{liste.add(caseLibre);
+                     }
                 }
                 
             }
