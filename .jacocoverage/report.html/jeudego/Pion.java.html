@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>Pion.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;JeuDeGo&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">jeudego</a> &gt; <span class="el_source">Pion.java</span></div><h1>Pion.java</h1><pre class="source lang-java linenums">package jeudego;
+
+public class Pion {
+ private Point pos;
+ private String color; 
+ private PlateauJeu plateau;
+ private Groupe group;
+ 
+<span class="nc" id="L9"> public Pion (Point p, String s,PlateauJeu pl){</span>
+<span class="nc" id="L10">	 this.pos=p;</span>
+<span class="nc" id="L11">	 this.color=s;</span>
+<span class="nc" id="L12">	 this.plateau=pl;</span>
+	 
+<span class="nc" id="L14">}</span>
+ 
+<span class="nc" id="L16">public Point getpos(){return this.pos;}</span>
+
+<span class="nc" id="L18">public String getColor(){return this.color;}</span>
+
+<span class="nc" id="L20">public PlateauJeu getPlateau(){return this.plateau;}</span>
+
+<span class="nc" id="L22">public void setpos(Point p){this.pos=p;}</span>
+
+<span class="nc" id="L24">public void setColor(String c){this.color=c;}</span>
+
+<span class="nc" id="L26">public void setPlateau(PlateauJeu plato){this.plateau=plato;}</span>
+
+<span class="nc" id="L28">public Groupe getGroupe(){return this.group;}</span>
+
+<span class="nc" id="L30">public void setGroupe(Groupe G){this.group=G;}</span>
+
+
+ 
+ 
+ 
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.2.201409121644</span></div></body></html>

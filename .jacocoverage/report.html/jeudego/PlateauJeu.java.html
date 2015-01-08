@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>PlateauJeu.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;JeuDeGo&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">jeudego</a> &gt; <span class="el_source">PlateauJeu.java</span></div><h1>PlateauJeu.java</h1><pre class="source lang-java linenums">/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package jeudego;
+
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ *
+ * @author vvielzeu
+ */
+public class PlateauJeu {
+
+    private List&lt;Point&gt; blanc;
+    private List&lt;Point&gt; noir;
+    private Point tourPrecedent;
+    private boolean captureAuTourPrecedent;
+    private int taille;
+    private Joueur joueur1;
+    private Joueur joueur2;
+
+    /**
+     * Constructeur de base
+     *
+     * @param taille
+     */
+<span class="nc" id="L29">    public PlateauJeu(int taille) {</span>
+<span class="nc" id="L30">        this.taille = taille;</span>
+<span class="nc" id="L31">        this.blanc = new ArrayList&lt;Point&gt;();</span>
+<span class="nc" id="L32">        this.noir = new ArrayList&lt;Point&gt;();</span>
+<span class="nc" id="L33">        this.tourPrecedent = new Point(1,1);</span>
+<span class="nc" id="L34">        this.captureAuTourPrecedent=false;</span>
+<span class="nc" id="L35">        this.joueur1 = new Joueur(&quot;blanc&quot;);</span>
+<span class="nc" id="L36">        this.joueur2 = new Joueur(&quot;noir&quot;);</span>
+<span class="nc" id="L37">    }</span>
+    
+<span class="nc" id="L39">    public PlateauJeu(PlateauJeu plateau){</span>
+<span class="nc" id="L40">    	this.taille=plateau.taille;</span>
+<span class="nc" id="L41">    	this.blanc=plateau.blanc;</span>
+<span class="nc" id="L42">    	this.noir=plateau.noir;</span>
+<span class="nc" id="L43">        this.tourPrecedent = new Point(1,1);</span>
+<span class="nc" id="L44">        this.captureAuTourPrecedent=false;</span>
+<span class="nc" id="L45">    	this.joueur1=plateau.joueur1;</span>
+<span class="nc" id="L46">    	this.joueur2=plateau.joueur2;</span>
+    	
+    		
+<span class="nc" id="L49">    }</span>
+
+    /*
+     * constructeur par defaut
+     */
+<span class="nc" id="L54">    public PlateauJeu() {</span>
+<span class="nc" id="L55">        this.taille = 9;</span>
+<span class="nc" id="L56">        this.blanc = new ArrayList&lt;Point&gt;();</span>
+<span class="nc" id="L57">        this.noir = new ArrayList&lt;Point&gt;();</span>
+<span class="nc" id="L58">        this.joueur1 = new Joueur(&quot;blanc&quot;);</span>
+<span class="nc" id="L59">        this.joueur2 = new Joueur(&quot;noir&quot;);</span>
+<span class="nc" id="L60">    }</span>
+
+    /**
+     * Get the value of taille
+     *
+     * @return the value of taille
+     */
+    public int getTaille() {
+<span class="nc" id="L68">        return taille;</span>
+    }
+
+    /**
+     * Set the value of taille
+     *
+     * @param taille new value of taille
+     */
+    public void setTaille(int taille) {
+<span class="nc" id="L77">        this.taille = taille;</span>
+<span class="nc" id="L78">    }</span>
+
+    /**
+     * Get the value of Noir
+     *
+     * @return the value of Noir
+     */
+    public List&lt;Point&gt; getNoir() {
+<span class="nc" id="L86">        return noir;</span>
+    }
+
+    /**
+     * Set the value of Noir
+     *
+     * @param noir new value of Noir
+     */
+    public void setNoir(List&lt;Point&gt; noir) {
+<span class="nc" id="L95">        this.noir = noir;</span>
+<span class="nc" id="L96">    }</span>
+
+    /**
+     * Get the value of blanc
+     *
+     * @return the value of blanc
+     */
+    public List&lt;Point&gt; getBlanc() {
+<span class="nc" id="L104">        return blanc;</span>
+    }
+
+    /**
+     * Set the value of blanc
+     *
+     * @param blanc new value of blanc
+     */
+    public void setBlanc(List&lt;Point&gt; blanc) {
+<span class="nc" id="L113">        this.blanc = blanc;</span>
+<span class="nc" id="L114">    }</span>
+
+    public Point getTourPrecedent() {
+<span class="nc" id="L117">        return tourPrecedent;</span>
+    }
+
+    public void setTourPrecedent(Point tourPrecedent) {
+<span class="nc" id="L121">        this.tourPrecedent = tourPrecedent;</span>
+<span class="nc" id="L122">    }</span>
+
+    public boolean isCaptureAuTourPrecedent() {
+<span class="nc" id="L125">        return captureAuTourPrecedent;</span>
+    }
+
+    public void setCaptureAuTourPrecedent(boolean captureAuTourPrecedent) {
+<span class="nc" id="L129">        this.captureAuTourPrecedent = captureAuTourPrecedent;</span>
+<span class="nc" id="L130">    }</span>
+    
+    public Joueur getJoueur1() {
+<span class="nc" id="L133">        return joueur1;</span>
+    }
+
+    public void setJoueur1(Joueur joueur1) {
+<span class="nc" id="L137">        this.joueur1 = joueur1;</span>
+<span class="nc" id="L138">    }</span>
+
+    public Joueur getJoueur2() {
+<span class="nc" id="L141">        return joueur2;</span>
+    }
+
+    public void setJoueur2(Joueur joueur2) {
+<span class="nc" id="L145">        this.joueur2 = joueur2;</span>
+<span class="nc" id="L146">    }</span>
+
+    /**
+     * Method to determine if the point is empty for a determinate color, or both if there is no color precised
+     *
+     * @param point,couleur
+     * @return &lt;pre&gt;true&lt;/pre&gt; if point is empty of white, else &lt;pre&gt;false&lt;/pre&gt;
+     */
+    public boolean pointLibre(Point point, String couleur) {
+<span class="nc" id="L155">        boolean res = true;</span>
+<span class="nc" id="L156">        boolean b = true;</span>
+<span class="nc" id="L157">        boolean n = true;</span>
+        /*
+         * Les 2 test suivants ont 4 résultats possibles:
+         * si b = false et n = false, cette fonction est inutile car recherche une case
+         * Si b = true et n = true, cette fonction renvoie les cases vides de toutes pièces
+         * Si b = true et n = false, cette fonction renvoie les cases ne contennant pas de pions blancs
+         * Si b = false et n = true, cette fonction renvoie les cases ne contennant pas de pions noirs
+         */
+<span class="nc bnc" id="L165" title="All 2 branches missed.">        if(couleur.equals(&quot;blanc&quot;)){</span>
+<span class="nc" id="L166">            b=false;</span>
+        }
+        else{
+<span class="nc bnc" id="L169" title="All 2 branches missed.">            if(couleur.equals(&quot;noir&quot;)){</span>
+<span class="nc" id="L170">                n=false;</span>
+            }
+        }
+        
+        
+<span class="nc bnc" id="L175" title="All 2 branches missed.">        if(b){</span>
+<span class="nc bnc" id="L176" title="All 2 branches missed.">            for (Point pBlanc : blanc){</span>
+<span class="nc bnc" id="L177" title="All 2 branches missed.">                if (pBlanc.equals(point)){</span>
+<span class="nc" id="L178">                    res = false;</span>
+                }
+<span class="nc" id="L180">            }</span>
+        }
+        
+<span class="nc bnc" id="L183" title="All 2 branches missed.">        if(n){</span>
+<span class="nc bnc" id="L184" title="All 2 branches missed.">            for (Point pNoir : noir){</span>
+<span class="nc bnc" id="L185" title="All 2 branches missed.">                if (pNoir.equals(point)){</span>
+<span class="nc" id="L186">                    res = false;</span>
+                }
+<span class="nc" id="L188">            }</span>
+        }
+<span class="nc" id="L190">        return res;</span>
+    }
+
+    
+    /**
+     * This method verifies if there is a suicide
+     * @param b represents the color here, true for white, false for black
+     * @return
+     */
+    public boolean suicide(boolean b) {
+<span class="nc" id="L200">        boolean res = false;</span>
+
+<span class="nc" id="L202">        return res;</span>
+    }
+    
+    /**
+     *
+     * @param A the player playing.
+     * @return
+     */
+    
+    /**
+     * Method to determine if a precedent configuration come back
+     * voisin is a local boolean which permits to not copy paste some tests
+     * the fonction returns true if the ko rule is respected, if the movement is legal
+     * 
+     *
+     * @param point this parameter is the play the current player wants to currently play
+     * @param couleur this parameter must contain &quot;blanc&quot; or &quot;noir&quot; which represents the color of the current player
+     * @return true if the ko rule is respected and if the play is legal, false if the it is not legal and the player has to choose an other play
+     */
+    public boolean ko(Point point, String couleur){
+<span class="nc" id="L222">        boolean voisin = false;</span>
+<span class="nc bnc" id="L223" title="All 2 branches missed.">        if (this.isCaptureAuTourPrecedent()==true){</span>
+<span class="nc bnc" id="L224" title="All 6 branches missed.">            if (this.getTourPrecedent().getx()==point.getx() &amp;&amp; (this.getTourPrecedent().gety()-point.gety()==-1 || this.getTourPrecedent().gety()-point.gety()==1)){</span>
+<span class="nc" id="L225">                voisin = true;          </span>
+<span class="nc bnc" id="L226" title="All 6 branches missed.">            } else if (this.getTourPrecedent().gety()==point.gety() &amp;&amp; (this.getTourPrecedent().getx()-point.getx()==-1 || this.getTourPrecedent().getx()-point.getx()==1)){</span>
+<span class="nc" id="L227">                voisin = true;</span>
+            }
+        } 
+<span class="nc bnc" id="L230" title="All 2 branches missed.">        if(voisin){</span>
+<span class="nc" id="L231">            Point A = new Point(point.getx() + 1, point.gety() );</span>
+<span class="nc" id="L232">            Point B = new Point(point.getx(), point.gety() + 1);</span>
+<span class="nc" id="L233">            Point C = new Point(point.getx() - 1, point.gety() );</span>
+<span class="nc" id="L234">            Point D = new Point(point.getx(), point.gety() - 1);</span>
+<span class="nc bnc" id="L235" title="All 2 branches missed.">            if (couleur.contains(&quot;blanc&quot;)){</span>
+<span class="nc bnc" id="L236" title="All 8 branches missed.">                if(this.pointLibre(A,&quot;noir&quot;) &amp;&amp; this.pointLibre(B,&quot;noir&quot;) &amp;&amp; this.pointLibre(C,&quot;noir&quot;) &amp;&amp; this.pointLibre(D,&quot;noir&quot;)){</span>
+<span class="nc" id="L237">                    return false;</span>
+                }
+            }
+<span class="nc bnc" id="L240" title="All 2 branches missed.">            if (couleur.contains(&quot;noir&quot;)){</span>
+<span class="nc bnc" id="L241" title="All 8 branches missed.">                if(this.pointLibre(A,&quot;blanc&quot;) &amp;&amp; this.pointLibre(B,&quot;blanc&quot;) &amp;&amp; this.pointLibre(C,&quot;blanc&quot;) &amp;&amp; this.pointLibre(D,&quot;blanc&quot;)){</span>
+<span class="nc" id="L242">                    return false;</span>
+                }
+            }
+        }
+<span class="nc" id="L246">        return true;</span>
+ }
+
+    //TODO La fonction tourDeJeu est peine d'erreurs, à faire quand suicide() sera prêt
+    /*public PlateauJeu tourDeJeu(Joueur A){
+    	System.out.println(&quot;C'est au tour du joueur &quot;+A.getCouleur()+&quot; de jouer&quot;);
+    	boolean b= true;
+    	if (A.getCouleur().equals(&quot;blanc&quot;)){b=true;}
+    	else{b=false;}
+    	PlateauJeu futur=new PlateauJeu(this);
+    	A.jouer(futur);
+    	if (futur.suicide(b)) {return futur;}
+    	else {if (futur.ko()) {return futur;}
+    	      else {System.out.println(&quot;Ce coup est impossible&quot;);
+    	            return this;}
+    	      }
+    	
+   	
+    }
+*/
+    public void miseAJour(Joueur A) {
+        
+<span class="nc" id="L268">    }</span>
+  }
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.2.201409121644</span></div></body></html>

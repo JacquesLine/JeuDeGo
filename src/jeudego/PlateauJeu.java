@@ -162,11 +162,11 @@ public class PlateauJeu {
          * Si b = true et n = false, cette fonction renvoie les cases ne contennant pas de pions blancs
          * Si b = false et n = true, cette fonction renvoie les cases ne contennant pas de pions noirs
          */
-        if(couleur.equals("blanc")){
+        if("blanc".equals(couleur)){
             b=false;
         }
         else{
-            if(couleur.equals("noir")){
+            if("noir".equals(couleur)){
                 n=false;
             }
         }
