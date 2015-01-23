@@ -1,6 +1,10 @@
 /*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
+ *JeuDeGo is a library dedicated to the reproduction of a game of go
+ *
+ * This library is developed at Ecole Centrales de Nantes as part of a practical
+ * project.
+ *
+ * JeuDeGo is a free software: you can redistribute it and/or modify it.
  */
 package jeudego;
 
@@ -15,7 +19,10 @@ import static org.junit.Assert.*;
 
 /**
  *
- * @author cbrandon
+ * @author Charles Brandon
+ * @author Roman Krakoviak
+ * @author Guillaume Vedeau
+ * @author Valentin Vielzeuf
  */
 public class JoueurTest {
     
