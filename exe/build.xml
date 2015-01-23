@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="jeudego" default="build" basedir="C:\Users\Utilisateur\Documents\NetBeansProjects\JeuDeGo">
+	<description> this is a hopeful yet deluding test project </description>
+		
+		<property name="src.dir" value="src"/>
+		<property name="testsrc.dir" value="test"/>
+		<property name="bin.dir" value="working\bin"/>
+		<property name="testbin.dir" value="working\testbin"/>
+		<property name="jar.dir" value="working\jar"/>
+		<property name="testjar.dir" value="working\testjar"/>
+		
+		
+		<target name="clear" description="supprime les dossiers de construction">
+			<delete dir="$(bin.dir)"/>
+			<delete dir="$(jar.dir)"/>
+		</target>
+		
+		<target name="telecharger" description="telecharge le fichier junit-4">
+			
+			<get src="http://central.maven/maven2/junit/4.4/junit-4.4.jar" dest="working"/>
+
+		</target>
+		
+		<target name="compile" description="Build the application" depends="clear">
+			<echo message="Building application..."/>
+			<mkdir dir="$(bin.dir)"/>
+			<javac srcdir="${src.dir}" destdir="${bin.dir}"/>
+			<echo message="Done!"/>
+		</target>
+		
+		<target name="jar" description="jar the application" depends="compile">
+		<mkdir dir="$(jar.dir)"/>
+			<jar destfile="${jar.dir}/sdf.jar" basedir="${bin.dir}">
+				<manifest>
+					<attribute name="Main-Class" value="${main-class}"/>
+				</manifest>
+			</jar>
+		<echo message="Creation du Jar fait"/>
+		</target>
+		
+		<target name="cleartest" description="supprime les dossiers de construction de test">
+			<delete dir="$(testbin.dir)"/>
+			<delete dir="$(testjar.dir)"/>
+		</target>
+		
+		<target name="compiletest" description="build les tests" depends="cleartest">
+			<echo message="Building tests..."/>
+			<mkdir dir ="$(test.dir)"/>
+		<javac srcdir="$(test.dir)" destdir="$(testbin.dir)"/>
+		</target>
+		
+		<target name="jartest" description="jar the tests" depends="compiletest">
+		<mkdir dir="$(testjar.dir)"/>
+			<jar destfile="${testjar.dir}/sdf.jar" basedir="${testbin.dir}">
+			</jar>
+		<echo message="Creation du Jar fait"/>
+		</target>
+
+	
+	
+</project>
