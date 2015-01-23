@@ -37,28 +37,26 @@ public class PlateauJeu {
         this.taille = taille;
         this.blanc = new ArrayList<Point>();
         this.noir = new ArrayList<Point>();
-        this.tourPrecedent = new Point(1,1);
-        this.captureAuTourPrecedent=false;
+        this.tourPrecedent = new Point(1, 1);
+        this.captureAuTourPrecedent = false;
         this.joueur1 = new Joueur("blanc");
         this.joueur2 = new Joueur("noir");
     }
-    
-    public PlateauJeu(PlateauJeu plateau){
-    	this.taille=plateau.taille;
-    	this.blanc=plateau.blanc;
-    	this.noir=plateau.noir;
-        this.tourPrecedent = new Point(1,1);
-        this.captureAuTourPrecedent=false;
-    	this.joueur1=plateau.joueur1;
-    	this.joueur2=plateau.joueur2;
-    	
-    		
+
+    public PlateauJeu(PlateauJeu plateau) {
+        this.taille = plateau.taille;
+        this.blanc = plateau.blanc;
+        this.noir = plateau.noir;
+        this.tourPrecedent = new Point(1, 1);
+        this.captureAuTourPrecedent = false;
+        this.joueur1 = plateau.joueur1;
+        this.joueur2 = plateau.joueur2;
+
     }
 
     /*
      * constructeur par defaut
      */
-       
     public PlateauJeu() {
         this.taille = 9;
         this.blanc = new ArrayList<Point>();
@@ -104,6 +102,36 @@ public class PlateauJeu {
     }
 
     /**
+     * add a List of Pion to noir
+     *
+     * @param noir
+     */
+    public void addNoir(List<Pion> noir) {
+
+        for (Pion pion : noir) {
+            if (this.noir.contains(pion.getpos())) {
+                this.noir.add(pion.getpos());
+            }
+
+        }
+    }
+
+    /**
+     * add a list of Pion to blanc
+     *
+     * @param blanc
+     */
+    public void addBlanc(List<Pion> blanc) {
+
+        for (Pion pion : blanc) {
+            if (this.blanc.contains(pion.getpos())) {
+                this.blanc.add(pion.getpos());
+            }
+
+        }
+    }
+
+    /**
      * Get the value of blanc
      *
      * @return the value of blanc
@@ -136,7 +164,7 @@ public class PlateauJeu {
     public void setCaptureAuTourPrecedent(boolean captureAuTourPrecedent) {
         this.captureAuTourPrecedent = captureAuTourPrecedent;
     }
-    
+
     public Joueur getJoueur1() {
         return joueur1;
     }
@@ -154,10 +182,12 @@ public class PlateauJeu {
     }
 
     /**
-     * Method to determine if the point is empty for a determinate color, or both if there is no color precised
+     * Method to determine if the point is empty for a determinate color, or
+     * both if there is no color precised
      *
      * @param point,couleur
-     * @return <pre>true</pre> if point is empty of white, else <pre>false</pre>
+     * @return <pre>true</pre> if point is empty of white, else
+     * <pre>false</pre>
      */
     public boolean pointLibre(Point point, String couleur) {
         boolean res = true;
@@ -170,27 +200,25 @@ public class PlateauJeu {
          * Si b = true et n = false, cette fonction renvoie les cases ne contennant pas de pions blancs
          * Si b = false et n = true, cette fonction renvoie les cases ne contennant pas de pions noirs
          */
-        if("blanc".equals(couleur)){
-            b=false;
-        }
-        else{
-            if("noir".equals(couleur)){
-                n=false;
+        if ("blanc".equals(couleur)) {
+            b = false;
+        } else {
+            if ("noir".equals(couleur)) {
+                n = false;
             }
         }
-        
-        
-        if(b){
-            for (Point pBlanc : blanc){
-                if (pBlanc.equals(point)){
+
+        if (b) {
+            for (Point pBlanc : blanc) {
+                if (pBlanc.equals(point)) {
                     res = false;
                 }
             }
         }
-        
-        if(n){
-            for (Point pNoir : noir){
-                if (pNoir.equals(point)){
+
+        if (n) {
+            for (Point pNoir : noir) {
+                if (pNoir.equals(point)) {
                     res = false;
                 }
             }
@@ -198,9 +226,9 @@ public class PlateauJeu {
         return res;
     }
 
-    
     /**
      * This method verifies if there is a suicide
+     *
      * @param b represents the color here, true for white, false for black
      * @return
      */
@@ -208,69 +236,71 @@ public class PlateauJeu {
         boolean res = false;
         return res;
     }
-    
+
     /**
      *
      * @param A the player playing.
      * @return
      */
-    
     /**
-     * Method to determine if a precedent configuration come back
-     * voisin is a local boolean which permits to not copy paste some tests
-     * the fonction returns true if the ko rule is respected, if the movement is legal
-     * 
+     * Method to determine if a precedent configuration come back voisin is a
+     * local boolean which permits to not copy paste some tests the fonction
+     * returns true if the ko rule is respected, if the movement is legal
      *
-     * @param point this parameter is the play the current player wants to currently play
-     * @param couleur this parameter must contain "blanc" or "noir" which represents the color of the current player
-     * @return true if the ko rule is respected and if the play is legal, false if the it is not legal and the player has to choose an other play
+     *
+     * @param point this parameter is the play the current player wants to
+     * currently play
+     * @param couleur this parameter must contain "blanc" or "noir" which
+     * represents the color of the current player
+     * @return true if the ko rule is respected and if the play is legal, false
+     * if the it is not legal and the player has to choose an other play
      */
-    public boolean ko(Point point, String couleur){
+    public boolean ko(Point point, String couleur) {
         boolean voisin = false;
-        if (this.isCaptureAuTourPrecedent()==true){
-            if (this.getTourPrecedent().getx()==point.getx() && (this.getTourPrecedent().gety()-point.gety()==-1 || this.getTourPrecedent().gety()-point.gety()==1)){
-                voisin = true;          
-            } else if (this.getTourPrecedent().gety()==point.gety() && (this.getTourPrecedent().getx()-point.getx()==-1 || this.getTourPrecedent().getx()-point.getx()==1)){
+        if (this.isCaptureAuTourPrecedent() == true) {
+            if (this.getTourPrecedent().getx() == point.getx() && (this.getTourPrecedent().gety() - point.gety() == -1 || this.getTourPrecedent().gety() - point.gety() == 1)) {
+                voisin = true;
+            } else if (this.getTourPrecedent().gety() == point.gety() && (this.getTourPrecedent().getx() - point.getx() == -1 || this.getTourPrecedent().getx() - point.getx() == 1)) {
                 voisin = true;
             }
-        } 
-        if(voisin){
-            Point A = new Point(point.getx() + 1, point.gety() );
+        }
+        if (voisin) {
+            Point A = new Point(point.getx() + 1, point.gety());
             Point B = new Point(point.getx(), point.gety() + 1);
-            Point C = new Point(point.getx() - 1, point.gety() );
+            Point C = new Point(point.getx() - 1, point.gety());
             Point D = new Point(point.getx(), point.gety() - 1);
-            if (couleur.contains("blanc")){
-                if(this.pointLibre(A,"noir") && this.pointLibre(B,"noir") && this.pointLibre(C,"noir") && this.pointLibre(D,"noir")){
+            if (couleur.contains("blanc")) {
+                if (this.pointLibre(A, "noir") && this.pointLibre(B, "noir") && this.pointLibre(C, "noir") && this.pointLibre(D, "noir")) {
                     return false;
                 }
             }
-            if (couleur.contains("noir")){
-                if(this.pointLibre(A,"blanc") && this.pointLibre(B,"blanc") && this.pointLibre(C,"blanc") && this.pointLibre(D,"blanc")){
+            if (couleur.contains("noir")) {
+                if (this.pointLibre(A, "blanc") && this.pointLibre(B, "blanc") && this.pointLibre(C, "blanc") && this.pointLibre(D, "blanc")) {
                     return false;
                 }
             }
         }
         return true;
- }
+    }
 
-    //TODO La fonction tourDeJeu est peine d'erreurs, à faire quand suicide() sera prêt
+    //TODO La fonction tourDeJeu est pleine d'erreurs, à faire quand suicide() sera prêt
     /*public PlateauJeu tourDeJeu(Joueur A){
-    	System.out.println("C'est au tour du joueur "+A.getCouleur()+" de jouer");
-    	boolean b= true;
-    	if (A.getCouleur().equals("blanc")){b=true;}
-    	else{b=false;}
-    	PlateauJeu futur=new PlateauJeu(this);
-    	A.jouer(futur);
-    	if (futur.suicide(b)) {return futur;}
-    	else {if (futur.ko()) {return futur;}
-    	      else {System.out.println("Ce coup est impossible");
-    	            return this;}
-    	      }
+     System.out.println("C'est au tour du joueur "+A.getCouleur()+" de jouer");
+     boolean b= true;
+     if (A.getCouleur().equals("blanc")){b=true;}
+     else{b=false;}
+     PlateauJeu futur=new PlateauJeu(this);
+     A.jouer(futur);
+     if (futur.suicide(b)) {return futur;}
+     else {if (futur.ko()) {return futur;}
+     else {System.out.println("Ce coup est impossible");
+     return this;}
+     }
     	
    	
-    }
-*/
+     }
+     */
     public void miseAJour(Joueur A) {
-        
+
     }
-  }
+}

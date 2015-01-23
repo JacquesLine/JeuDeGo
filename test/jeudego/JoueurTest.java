@@ -27,6 +27,7 @@ import static org.junit.Assert.*;
 public class JoueurTest {
     
     public JoueurTest() {
+        Joueur jo = new Joueur("vert");
     }
     
     @BeforeClass
@@ -74,6 +75,7 @@ public class JoueurTest {
         pl.getNoir().add(new Point(4,4));
         pl.getNoir().add(new Point(3,5));
         Joueur instance = new Joueur("blanc");
+        Joueur instance2 = new Joueur("noir");
         
         
         Point expResult = new Point(1,1);

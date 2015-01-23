@@ -19,8 +19,9 @@ import java.util.List;
  * @author Valentin Vielzeuf
  */
 public class Groupe {
+
     private List<Pion> pions;
-        private String couleur;
+    private String couleur;
 
     /**
      * Get the value of couleur
@@ -42,94 +43,96 @@ public class Groupe {
 
     /**
      * constructeur de Groupe complet
+     *
      * @param c
-     * @param l 
+     * @param l
      */
-    public Groupe(String c,List l){
-        this.pions=l;
-        this.couleur=c;
+    public Groupe(String c, List l) {
+        this.pions = l;
+        this.couleur = c;
     }
-    
+
     /**
      * constructeur de Groupe vide
-     * @param c 
+     *
+     * @param c
      */
-    public Groupe(String c){
-        this.pions=new ArrayList<Pion>();
-        this.couleur=c;
+    public Groupe(String c) {
+        this.pions = new ArrayList<Pion>();
+        this.couleur = c;
     }
-    
+
     /**
      * constructeur de nouveaux groupes
-     * @param pion 
+     *
+     * @param pion
      */
-    public Groupe(Pion pion){
+    public Groupe(Pion pion) {
         this.pions = new ArrayList<>();
         this.pions.add(pion);
-        this.couleur= pion.getColor();
-        
+        this.couleur = pion.getColor();
+
     }
-    
-    public List<Pion> getPions(){
+
+    public List<Pion> getPions() {
         return pions;
     }
-    
-    public void ajouter(Pion p){
-    	this.pions.add(p);
+
+    /**
+     * ajoute un pion au groupe
+     *
+     * @param p
+     */
+    public void ajouter(Pion p) {
+        this.pions.add(p);
     }
-    
-    public boolean liberte (PlateauJeu pl){
+
+    public boolean liberte(PlateauJeu pl) {
         boolean a = false;
-        for(Pion pion : pions){
-            if(pion.getpos().liberte(pl)){
-                a=true;
+        for (Pion pion : pions) {
+            if (pion.getpos().liberte(pl)) {
+                a = true;
             }
         }
         return a;
     }
-    
+
     /**
      * regroupe 2 groupes de pions en 1 seul
+     *
      * @param a
      * @param b
-     * @return 
+     * @return
      */
-    public Groupe fusion(Groupe a, Groupe b){
-    	Groupe c=new Groupe(a.getCouleur());
-    	for (Pion pion:a.getPions()) {c.getPions().add(pion);
-        }
-    	for (Pion pion:b.getPions()) {
+    public static Groupe fusion(Groupe a, Groupe b) {
+        Groupe c = new Groupe(a.getCouleur());
+
+        for (Pion pion : a.getPions()) {
             c.getPions().add(pion);
         }
-    	for (Pion pion: a.getPions()) {
+        for (Pion pion : b.getPions()) {
             c.getPions().add(pion);
         }
-    	for (Pion pion: b.getPions()) {
-            c.getPions().add(pion);
-        }
-    	return c;
-    	
+
+        return c;
+
     }
+
     /**
-     * 
+     * Recherche et renvoie la liste des cases libres autour d'un groupe de
+     * pions
+     *
      * @param pl
-     * @return 
+     * @return
      */
-    public List<Point> casesLibres (PlateauJeu pl){
+    public ArrayList<Point> casesLibres(PlateauJeu pl) {
         ArrayList<Point> liste = new ArrayList<Point>();
-        liste.add(pions.get(0).getpos().casesLibres(pl).get(0));
-        
-        for (Pion pion : pions){
-            for (Point caseLibre : pion.getpos().casesLibres(pl)){
-                for (Point element : liste){
-                    
-                    if (element.equals(caseLibre)){
-                        System.out.println("Point déjà dans la liste");
-                    }
-                     else{liste.add(caseLibre);
-                     }
+
+        for (Pion pion : pions) {
+            for (Point caseLibre : pion.getpos().casesLibres(pl)) {
+                if (!liste.contains(caseLibre)) {
+                    liste.add(caseLibre);
                 }
-                
             }
         }
         return liste;

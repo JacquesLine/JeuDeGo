@@ -24,6 +24,9 @@ import org.junit.Test;
 public class PointTest {
 
     public PointTest() {
+        Point po = new Point();
+        Point po2 = new Point(po);
+        
     }
 
     @Before
